@@ -12,7 +12,7 @@ const Home = () => {
     return (
         <div>
             <Hero />
-            <TextRevealCard children={"Best Computer Institute"} />
+            <TextRevealCard children={"Best Computer Institute"} className={"bg-black"} />
             <Carousel />
             <Course_Container />
             <About_Container />
