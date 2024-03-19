@@ -18,71 +18,66 @@ import {
     Bars3Icon,
     XMarkIcon,
 } from "@heroicons/react/24/outline";
-import {
-    Bars4Icon,
-    GlobeAmericasIcon,
-    NewspaperIcon,
-    PhoneIcon,
-    RectangleGroupIcon,
-    SquaresPlusIcon,
-    SunIcon,
-    TagIcon,
-    UserGroupIcon,
-} from "@heroicons/react/24/solid";
-
+import { IoMdNotifications } from "react-icons/io";
+import { PiStudent } from "react-icons/pi";
+import { FaUserLarge } from "react-icons/fa6";
+import { FaCodeBranch } from "react-icons/fa";
+import { GrCertificate } from "react-icons/gr";
+import { MdContactEmergency } from "react-icons/md";
+import { FaSearch } from "react-icons/fa";
+import { HiOutlineMail } from "react-icons/hi";
 const navListMenuItems = [
     {
-        title: "Products",
+        title: "Add Student",
+        description: "You can add all Student From here.",
+        icon: PiStudent,
+        redirect: '/admin/all_Students'
+    },
+    {
+        title: "Add Certificate",
+        description: "You can Add Certificate of Students from here",
+        icon: GrCertificate,
+        redirect: '/admin/add_certificate'
+    },
+    {
+        title: "All Certificate",
+        description: "Check All Your added Certificate",
+        icon: GrCertificate,
+        redirect: '/admin/all_Students'
+    },
+    {
+        title: "Profile",
+        description: "Edit Your Profile",
+        icon: FaUserLarge,
+        redirect: '/check_certificate'
+    },
+    {
+        title: "All Messages",
+        description: "Check  All Requests",
+        icon: MdContactEmergency,
+        redirect: '/check_certificate'
+    },
+    {
+        title: "All Frenchaise",
         description: "Find the perfect solution for your needs.",
-        icon: SquaresPlusIcon,
+        icon: FaCodeBranch,
         redirect: '/check_certificate'
     },
     {
-        title: "About Us",
-        description: "Meet and learn about our dedication",
-        icon: UserGroupIcon,
+        title: "Notifications",
+        description: "Inform about new batches",
+        icon: IoMdNotifications,
         redirect: '/check_certificate'
     },
     {
-        title: "Blog",
-        description: "Find the perfect solution for your needs.",
-        icon: Bars4Icon,
+        title: "Send Email",
+        description: "Send email to register students",
+        icon: HiOutlineMail,
         redirect: '/check_certificate'
-    },
-    {
-        title: "Services",
-        description: "Learn how we can help you achieve your goals.",
-        icon: SunIcon,
-        redirect: '/check_certificate'
-    },
-    {
-        title: "Support",
-        description: "Reach out to us for assistance or inquiries",
-        icon: GlobeAmericasIcon,
-        redirect: '/check_certificate'
-    },
-    {
-        title: "Contact",
-        description: "Find the perfect solution for your needs.",
-        icon: PhoneIcon,
-        redirect: '/check_certificate'
-    },
-    {
-        title: "News",
-        description: "Read insightful articles, tips, and expert opinions.",
-        icon: NewspaperIcon,
-        redirect: '/check_certificate'
-    },
-    {
-        title: "Products",
-        description: "Find the perfect solution for your needs.",
-        icon: RectangleGroupIcon,
-        redirect: '/check_certificate'
-    },
-    {
-        title: "Special Offers",
-        description: "Explore limited-time deals and bundles",
-        icon: TagIcon,
+    }, {
+        title: "Search Student",
+        description: "Search for a student",
+        icon: FaSearch,
         redirect: '/check_certificate'
     },
 ];
@@ -137,7 +132,7 @@ function NavListMenu() {
                             selected={isMenuOpen || isMobileMenuOpen}
                             onClick={() => setIsMobileMenuOpen((cur) => !cur)}
                         >
-                            Resources
+                            Dashboard
                             <ChevronDownIcon
                                 strokeWidth={2.5}
                                 className={`hidden h-3 w-3 transition-transform lg:block ${isMenuOpen ? "rotate-180" : ""
@@ -167,30 +162,48 @@ function NavListMenu() {
 function NavList() {
     return (
         <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
-            <Typography
-                as="a"
-                to="/"
-                variant="small"
-                color="blue-gray"
-                className="font-medium"
-            >
-                <ListItem className="flex items-center gap-2 py-2 pr-4">
-                    <NavLink to={"/"}>Home</NavLink>
-                </ListItem>
-            </Typography>
+            <NavLink to={"/"}>
+                <Typography
+                    as="a"
+                    to="/"
+                    variant="small"
+                    color="blue-gray"
+                    className="font-medium"
+                >
+                    <ListItem className="flex items-center gap-2 py-2 pr-4">
+                        Home
+                    </ListItem>
+                </Typography>
+            </NavLink>
             <NavListMenu />
-            <Typography
-                as="a"
-                to="#"
-                variant="small"
-                color="blue-gray"
-                className="font-medium"
-            >
-                <ListItem className="flex items-center gap-2 py-2 pr-4">
-                    <NavLink to={"/contact"}>   Contact Us</NavLink>
-                </ListItem>
-            </Typography>
-        </List>
+            <NavLink to={"/admin/check_certificate"}>
+
+                <Typography
+                    as="a"
+                    to="#"
+                    variant="small"
+                    color="blue-gray"
+                    className="font-medium"
+                >
+                    <ListItem className="flex items-center gap-2 py-2 pr-4">
+                        Check_Certificate
+                    </ListItem>
+                </Typography>
+            </NavLink>
+            <NavLink to={"/contact"}>
+                <Typography
+                    as="a"
+                    to="#"
+                    variant="small"
+                    color="blue-gray"
+                    className="font-medium"
+                >
+                    <ListItem className="flex items-center gap-2 py-2 pr-4">
+                        Contact Us
+                    </ListItem>
+                </Typography>
+            </NavLink>
+        </List >
     );
 }
 
@@ -207,14 +220,16 @@ export default function StickyNavbar() {
     return (
         <Navbar className="mx-auto max-w-screen-xl px-4 py-2 hover:drop-shadow-2xl">
             <div className="flex items-center justify-between text-blue-gray-900">
-                <Typography
-                    as="a"
-                    to="#"
-                    variant="h6"
-                    className="mr-4 cursor-pointer py-1.5 lg:ml-2"
-                >
-                    Material Tailwind
-                </Typography>
+                <NavLink to={"/"}>
+                    <Typography
+                        as="a"
+                        to="#"
+                        variant="h6"
+                        className="mr-4 cursor-pointer py-1.5 lg:ml-2"
+                    >
+                        Aic Computer
+                    </Typography>
+                </NavLink>
                 <div className="hidden lg:block">
                     <NavList />
                 </div>
