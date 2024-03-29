@@ -8,7 +8,7 @@ import {
 } from "@material-tailwind/react";
 import Check_ICon from "../../Components/Check_ICon"
 import ButtonComp from '../../Components/ButtonComp'
-
+import ScrollReveal from 'scrollreveal'
 const courseData = [{
     name: "DCA",
     Desc: "Diploma in computer Application",
@@ -39,6 +39,7 @@ const courseData = [{
 }
 ]
 export default function Course_Container() {
+    ScrollReveal().reveal('.mainCourseDiv', { duration: 500 })
     return (
         <>
             <div className="certificate flex flex-col items-center justify-center">

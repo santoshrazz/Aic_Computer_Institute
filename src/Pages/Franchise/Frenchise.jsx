@@ -2,9 +2,9 @@ import React from 'react'
 import "./Frenchise.css"
 import ComputerCenter from '../../Assets/Computer_Center_Image.jpg'
 const Frenchise = () => {
-    const frenchise = [0, 1, 2, 3, 5];
+    const frenchise = [0, 1, 2, 3];
     return (
-        <div className='bg-gradient-to-r from-teal-400 to-yellow-200 min-h-screen'>
+        <div className='bg-[#40678d] min-h-screen'>
             <h3 className=' text-center font-extrabold text-5xl text-white'>Our New Frenchise</h3>
             <div className=" min-h-screen">
                 <div className="max-w-screen-xl mx-auto px-4 pt-16 pb-4">

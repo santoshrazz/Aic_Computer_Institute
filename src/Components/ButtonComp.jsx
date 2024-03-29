@@ -9,7 +9,7 @@ const ButtonComp = ({ text = "text", ...props }) => {
 
                 <filter id="glow">
                     <feGaussianBlur className="blur" result="coloredBlur" stdDeviation="2"></feGaussianBlur>
-                    <feTurbulence type="fractalNoise" baseFrequency="0.075" numOctaves="0.3" result="turbulence"></feTurbulence>
+                    <feTurbulence type="fractalNoise" baseFrequency="0.075" numOctaves={0.3} result="turbulence"></feTurbulence>
                     <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="30" xChannelSelector="R" yChannelSelector="G" result="displace"></feDisplacementMap>
                     <feMerge>
                         <feMergeNode in="coloredBlur"></feMergeNode>

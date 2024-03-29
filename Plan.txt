@@ -1,0 +1,19 @@
+1.Added StickyNavbar Component
+2.Added MacbookReveal Effect Component
+3.Added Text Reveal Component
+4.Added Carousel Component
+5.Added Courses Page
+6.About Us Page 
+7.Added Testimonal Component
+8.Added Our Services Component
+9.Added Our Frenchise Component
+10.Added Contact Us Page
+11. Added Director Page
+12.Added Footer
+
+//-------------> For Admin Only <----------------
+
+1.Added Login Page
+2.Added Add_Certificate Component
+3.Added Check_Certificate Component
+4.Added All Add_Certificate Component

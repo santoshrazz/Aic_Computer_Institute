@@ -26,6 +26,8 @@ import { GrCertificate } from "react-icons/gr";
 import { MdContactEmergency } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
+import { useNavigate } from 'react-router-dom'
+
 const navListMenuItems = [
     {
         title: "Add Student",
@@ -61,7 +63,7 @@ const navListMenuItems = [
         title: "All Frenchaise",
         description: "Find the perfect solution for your needs.",
         icon: FaCodeBranch,
-        redirect: '/check_certificate'
+        redirect: '/frenchise'
     },
     {
         title: "Notifications",
@@ -210,6 +212,8 @@ function NavList() {
 export default function StickyNavbar() {
     const [openNav, setOpenNav] = React.useState(false);
 
+    //Create navigate object using react router dom and useNavigate hook
+    const navigate = useNavigate();
     React.useEffect(() => {
         window.addEventListener(
             "resize",
@@ -237,7 +241,7 @@ export default function StickyNavbar() {
                     <Button variant="text" size="sm" color="blue-gray">
                         Log In
                     </Button>
-                    <Button variant="gradient" size="sm">
+                    <Button variant="gradient" size="sm" onClick={() => (navigate('/login'))}>
                         Sign In
                     </Button>
                 </div>
@@ -260,7 +264,7 @@ export default function StickyNavbar() {
                     <Button variant="outlined" size="sm" color="blue-gray" fullWidth>
                         Log In
                     </Button>
-                    <Button variant="gradient" size="sm" fullWidth>
+                    <Button variant="gradient" onClick={() => (navigate('/login'))} size="sm" fullWidth>
                         Sign In
                     </Button>
                 </div>

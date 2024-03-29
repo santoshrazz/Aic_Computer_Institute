@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Computer1 from '../../Assets/Computer1.jpg'
 import Computer2 from '../../Assets/Computer2.jpg'
 import ISO from '../../Assets/ISO.jpg'
 import ComputerImage from '../../Assets/Computer_Image.jpg'
+import { motion } from 'framer-motion'
 
 const Our_Services = () => {
     const ServiceArray = [{
@@ -22,13 +23,15 @@ const Our_Services = () => {
         desc: "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
         img: Computer2
     },]
+
+    const ref = useRef(null);
     return (
         <div className='bg-[#34495e]'>
             <h4 className='text-white text-center text-2xl m-3'>Our Best Services</h4>
-            <div className=' grid grid-cols-12 place-content-center place-items-center'>
+            <div className=' grid grid-cols-12 place-content-center place-items-center' ref={ref}>
                 {
                     ServiceArray.map((ele, ind) => {
-                        return <div className="max-w-sm col-span-12 m-4  md:col-span-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" key={ind}>
+                        return <motion.div drag dragConstraints={ref} className="max-w-sm col-span-12 m-4  md:col-span-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" key={ind}>
                             <a href="#">
                                 <img className="rounded-t-lg w-full" src={ele.img} alt="" />
                             </a>
@@ -44,7 +47,7 @@ const Our_Services = () => {
                                     </svg>
                                 </a>
                             </div>
-                        </div>
+                        </motion.div>
                     })
                 }
             </div>

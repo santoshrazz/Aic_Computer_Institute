@@ -8,6 +8,8 @@ import Footer from '../Footer/Footer'
 import Testimonal from '../Testimonal/Testimonal'
 import Contact from '../Contact/Contact'
 import Our_Services from '../Our_Services/Our_Services'
+import Frenchise from '../Franchise/Frenchise'
+import Director from '../Director/Director'
 const Home = () => {
     return (
         <div>
@@ -18,7 +20,9 @@ const Home = () => {
             <About_Container />
             <Testimonal />
             <Our_Services />
+            <Frenchise />
             <Contact />
+            <Director />
             <Footer />
         </div>
     )
