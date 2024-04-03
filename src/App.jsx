@@ -5,8 +5,8 @@ import Testimonal from "./Pages/Testimonal/Testimonal"
 function App() {
   return (
     <>
-      {/* <RoutesComp /> */}
-      <Certificate_Download />
+      <RoutesComp />
+      {/* <Certificate_Download /> */}
       {/* <Testimonal /> */}
     </>
   )
