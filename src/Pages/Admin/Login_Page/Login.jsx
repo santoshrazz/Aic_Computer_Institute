@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, Input, Checkbox, Button } from "antd";
 import "./Login.css";
-import { useQuery, QueryClient } from "@tanstack/react-query";
+import { useQuery, QueryClient, useMutation } from "@tanstack/react-query";
 import axios from "axios";
 
 const Login = () => {
@@ -11,30 +11,22 @@ const Login = () => {
     password: "",
   });
 
-  const fetchAdmin = async () => {
-    const response = await axios.get("https://dummyjson.com/products");
+  const fetchAdmin = async (data) => {
+    const response = await axios.post("/admin/login", data);
     return response.data;
   };
-  // const { data, isLoading, error } = useQuery({
-  //   queryKey: ["adminState"],
-  //   queryFn: fetchAdmin,
-  // });
-  // console.log(data);
-  const loginAdmin = () => {
-    // QueryClient.fetchQuery("adminState", fetchAdmin);
-  };
 
-  // Fetch admin data using useQuery hook
-  const { data } = useQuery("fetchAdmin", fetchAdmin, {
-    enabled: false,
-  });
-  console.log(data);
   // Handler for form submission
+
+  const { mutate, isSuccess, data, isPending } = useMutation({
+    mutationKey: ["getAdminState"],
+    mutationFn: fetchAdmin,
+  });
   const onFinish = (values) => {
-    console.log("Success:", values);
+    mutate(formData);
+    console.log(data);
     // You can perform further actions like API calls or navigation here
   };
-
   // Handler for form submission failure
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
@@ -50,6 +42,12 @@ const Login = () => {
     }));
   };
 
+  if (isPending) {
+    console.log("Pending...");
+  }
+  if (isSuccess) {
+    console.log(data);
+  }
   return (
     <div className="login-page">
       <div className="login-box">
@@ -116,7 +114,6 @@ const Login = () => {
               type="primary"
               htmlType="submit"
               className="login-form-button bg-blue-500 hover:bg-black"
-              onClick={loginAdmin}
             >
               LOGIN
             </Button>
