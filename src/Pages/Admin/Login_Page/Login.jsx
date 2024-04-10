@@ -58,7 +58,7 @@ const Login = () => {
       console.log(data);
       localStorage.setItem("isLoggedIn", true);
       notify("Login Success");
-      navigate("/admin/dashboard");
+      navigate("/head/dashboard");
     }
   }
 
@@ -125,14 +125,13 @@ const Login = () => {
           </Form.Item>
 
           <Form.Item>
-            {/* <Button
+            <Button
               type="primary"
               htmlType="submit"
-              className=""
+              className="login-form-button bg-blue-500 hover:bg-black"
             >
-              
-            </Button> */}
-            <button className="login-form-button bg-blue-500 hover:bg-black"></button>
+              LOADING
+            </Button>
           </Form.Item>
         </Form>
       </div>

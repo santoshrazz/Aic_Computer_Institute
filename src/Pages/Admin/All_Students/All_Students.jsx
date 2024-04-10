@@ -29,9 +29,9 @@ const All_Students = () => {
                 </tr>
               </thead>
               <tbody>
-                {array.map(() => {
+                {array.map((_, ind) => {
                   return (
-                    <tr>
+                    <tr key={ind}>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <div className="flex">
                           <div className="flex-shrink-0 w-10 h-10">

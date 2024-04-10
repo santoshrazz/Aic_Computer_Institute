@@ -31,6 +31,7 @@ import {
   Bars3Icon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 export default function Dashboard_Slider() {
   const [open, setOpen] = React.useState(0);
@@ -235,7 +236,7 @@ export default function Dashboard_Slider() {
                   />
                 </svg>
               </ListItemPrefix>
-              Back TO Website
+              <Link to="/">Back to Website</Link>
             </ListItem>
             <ListItem>
               <ListItemPrefix>

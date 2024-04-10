@@ -45,7 +45,7 @@ const navListMenuItems = [
     title: "Add Certificate",
     description: "You can Add Certificate of Students from here",
     icon: GrCertificate,
-    redirect: "/",
+    redirect: "/head/add_certificate",
   },
   {
     title: "All Certificate",
@@ -179,7 +179,7 @@ function NavList() {
       <NavListMenu />
       <Typography
         as={Link}
-        to="/admin/check_certificate"
+        to="/head/check_certificate"
         variant="small"
         color="blue-gray"
         className="font-medium"

@@ -17,10 +17,10 @@ const RoutesComp = () => {
         <Route path="" element={<Home />} />
         <Route path="contact" element={<Contact />} />
         <Route path="Course" element={<Course_Container />} />
-        {/* <Route path='login' element={<Login />} /> */}
+        <Route path="login" element={<Login />} />
         <Route path="frenchise" element={<Frenchise />} />
         <Route path="director" element={<Director />} />
-        <Route path="admin/*" element={<Admin_Route />} />
+        <Route path="head/*" element={<Admin_Route />} />
       </Routes>
     </BrowserRouter>
   );
