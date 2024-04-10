@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Form, Input, Checkbox, Button } from "antd";
+import { Form, Checkbox, Button } from "antd";
 import "./Login.css";
-import { useQuery, QueryClient, useMutation } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
   // Define state variables for form fields
   const [formData, setFormData] = useState({
@@ -11,6 +13,9 @@ const Login = () => {
     password: "",
   });
 
+  // Navigate Object
+  const navigate = useNavigate();
+  // Fetch Admin Function
   const fetchAdmin = async (data) => {
     const response = await axios.post("/admin/login", data);
     return response.data;
@@ -18,20 +23,21 @@ const Login = () => {
 
   // Handler for form submission
 
-  const { mutate, isSuccess, data, isPending } = useMutation({
+  const { mutate, isSuccess, data, isPending, isError } = useMutation({
     mutationKey: ["getAdminState"],
     mutationFn: fetchAdmin,
   });
   const onFinish = (values) => {
     mutate(formData);
     console.log(data);
-    // You can perform further actions like API calls or navigation here
   };
   // Handler for form submission failure
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
 
+  // Toast notify Function
+  const notify = (msg) => toast(msg);
   // Handler for form field changes
   const handleInputChange = (e) => {
     const { name, value, checked, type } = e.target;
@@ -42,15 +48,24 @@ const Login = () => {
     }));
   };
 
-  if (isPending) {
-    console.log("Pending...");
-  }
+  useEffect(() => {
+    if (isError) {
+      notify("Some error occurred, please try again.");
+    }
+  }, [isError]);
   if (isSuccess) {
-    console.log(data);
+    if (data.status === true) {
+      console.log(data);
+      localStorage.setItem("isLoggedIn", true);
+      notify("Login Success");
+      navigate("/admin/dashboard");
+    }
   }
+
   return (
     <div className="login-page">
       <div className="login-box">
+        <ToastContainer />
         <div className="illustration-wrapper">
           <img
             src="https://mixkit.imgix.net/art/preview/mixkit-left-handed-man-sitting-at-a-table-writing-in-a-notebook-27-original-large.png?q=80&auto=format%2Ccompress&h=700"
@@ -115,7 +130,7 @@ const Login = () => {
               htmlType="submit"
               className="login-form-button bg-blue-500 hover:bg-black"
             >
-              LOGIN
+              {isPending ? "Logging...." : "LOGIN"}
             </Button>
           </Form.Item>
         </Form>
