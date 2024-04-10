@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Checkbox, Button } from "antd";
 import "./Login.css";
 import { useMutation } from "@tanstack/react-query";
@@ -125,13 +125,14 @@ const Login = () => {
           </Form.Item>
 
           <Form.Item>
-            <Button
+            {/* <Button
               type="primary"
               htmlType="submit"
-              className="login-form-button bg-blue-500 hover:bg-black"
+              className=""
             >
-              {isPending ? "Logging...." : "LOGIN"}
-            </Button>
+              
+            </Button> */}
+            <button className="login-form-button bg-blue-500 hover:bg-black"></button>
           </Form.Item>
         </Form>
       </div>

@@ -167,46 +167,39 @@ function NavListMenu() {
 function NavList() {
   return (
     <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
-      <NavLink to={"/"}>
-        <Typography
-          as="a"
-          to="/"
-          variant="small"
-          color="blue-gray"
-          className="font-medium"
-        >
-          <ListItem className="flex items-center gap-2 py-2 pr-4">
-            Home
-          </ListItem>
-        </Typography>
-      </NavLink>
+      <Typography
+        as={Link}
+        to="/"
+        variant="small"
+        color="blue-gray"
+        className="font-medium"
+      >
+        <ListItem className="flex items-center gap-2 py-2 pr-4">Home</ListItem>
+      </Typography>
       <NavListMenu />
-      <NavLink to={"/admin/check_certificate"}>
-        <Typography
-          as="a"
-          to="#"
-          variant="small"
-          color="blue-gray"
-          className="font-medium"
-        >
-          <ListItem className="flex items-center gap-2 py-2 pr-4">
-            Check_Certificate
-          </ListItem>
-        </Typography>
-      </NavLink>
-      <NavLink to={"/contact"}>
-        <Typography
-          as="a"
-          to="#"
-          variant="small"
-          color="blue-gray"
-          className="font-medium"
-        >
-          <ListItem className="flex items-center gap-2 py-2 pr-4">
-            Contact Us
-          </ListItem>
-        </Typography>
-      </NavLink>
+      <Typography
+        as={Link}
+        to="/admin/check_certificate"
+        variant="small"
+        color="blue-gray"
+        className="font-medium"
+      >
+        <ListItem className="flex items-center gap-2 py-2 pr-4">
+          Check_Certificate
+        </ListItem>
+      </Typography>
+
+      <Typography
+        as={Link}
+        to="/contact"
+        variant="small"
+        color="blue-gray"
+        className="font-medium"
+      >
+        <ListItem className="flex items-center gap-2 py-2 pr-4">
+          Contact Us
+        </ListItem>
+      </Typography>
     </List>
   );
 }
@@ -226,16 +219,14 @@ export default function StickyNavbar() {
   return (
     <Navbar className="mx-auto max-w-screen-xl px-4 py-2 hover:drop-shadow-2xl">
       <div className="flex items-center justify-between text-blue-gray-900">
-        <NavLink to={"/"}>
-          <Typography
-            as="a"
-            to="#"
-            variant="h6"
-            className="mr-4 cursor-pointer py-1.5 lg:ml-2"
-          >
-            Aic Computer
-          </Typography>
-        </NavLink>
+        <Typography
+          as={Link}
+          to="#"
+          variant="h6"
+          className="mr-4 cursor-pointer py-1.5 lg:ml-2"
+        >
+          Aic Computer
+        </Typography>
         <div className="hidden lg:block">
           <NavList />
         </div>
