@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ButtonComp from "../../../Components/ButtonComp";
 import { Link } from "react-router-dom";
+import Dashboard_Slider from "../Dashboard/Dashboard_Slider";
 const Add_Certificate = () => {
   const [formData, setFormData] = useState({
     applicantName: "",
@@ -39,6 +40,7 @@ const Add_Certificate = () => {
   };
   return (
     <section className=" py-1 bg-blueGray-50">
+      <Dashboard_Slider />
       <div className="w-full lg:w-9/12 px-4 mx-auto mt-6">
         <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
           <div className="rounded-t bg-white mb-0 px-6 py-6">

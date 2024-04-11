@@ -67,7 +67,7 @@ export default function Dashboard_Slider() {
               className="h-8 w-8"
             />
             <Typography variant="h5" color="blue-gray">
-              Sidebar
+              Welcome Shreenath
             </Typography>
           </div>
           <div className="p-2">
@@ -107,7 +107,7 @@ export default function Dashboard_Slider() {
                     <ListItemPrefix>
                       <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                     </ListItemPrefix>
-                    Add Students
+                    <Link to={"/head/add_certificate"}>Add Students</Link>
                   </ListItem>
                   <ListItem>
                     <ListItemPrefix>
@@ -119,7 +119,7 @@ export default function Dashboard_Slider() {
                     <ListItemPrefix>
                       <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                     </ListItemPrefix>
-                    All Certificate
+                    <Link to={"/head/all_Students"}>All Certificate</Link>
                   </ListItem>
                 </List>
               </AccordionBody>
