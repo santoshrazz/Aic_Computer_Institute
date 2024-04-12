@@ -21,7 +21,6 @@ const Admin_Route = () => {
   return (
     <div>
       <Routes>
-        <Route path="check_certificate" element={<Check_Certificate />} />
         <Route path="add_certificate" element={<Add_Certificate />} />
         <Route path="all_Students" element={<All_Students />} />
         <Route path="dashboard" element={<Main_Dashboard />} />

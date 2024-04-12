@@ -8,6 +8,7 @@ import Login from "../Admin/Login_Page/Login";
 import Admin_Route from "./Admin_Route";
 import Frenchise from "../Franchise/Frenchise";
 import Director from "../Director/Director";
+import Check_Certificate from "../Admin/Check_Certificate/Check_Certificate";
 
 const RoutesComp = () => {
   return (
@@ -16,6 +17,7 @@ const RoutesComp = () => {
       <Routes path="/">
         <Route path="" element={<Home />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="check_certificate" element={<Check_Certificate />} />
         <Route path="Course" element={<Course_Container />} />
         <Route path="login" element={<Login />} />
         <Route path="frenchise" element={<Frenchise />} />

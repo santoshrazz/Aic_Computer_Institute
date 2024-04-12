@@ -180,7 +180,7 @@ function NavList() {
       <NavListMenu />
       <Typography
         as={Link}
-        to="/head/check_certificate"
+        to="/check_certificate"
         variant="small"
         color="blue-gray"
         className="font-medium"
