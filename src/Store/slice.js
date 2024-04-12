@@ -8,7 +8,6 @@ const initialState = {
 export const getUser = createAsyncThunk("getUser", async () => {
   try {
     const isLoggedIn = localStorage.getItem("isLoggedIn");
-    console.log(isLoggedIn);
     if (isLoggedIn) {
       return true;
     } else {

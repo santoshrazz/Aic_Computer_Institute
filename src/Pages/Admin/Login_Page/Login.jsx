@@ -6,6 +6,8 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setLogin } from "../../../Store/slice";
 const Login = () => {
   // Define state variables for form fields
   const [formData, setFormData] = useState({
@@ -13,8 +15,14 @@ const Login = () => {
     password: "",
   });
 
+  // Toast notify Function
+  const notify = (msg) => toast(msg);
+
   // Navigate Object
   const navigate = useNavigate();
+
+  // useDispatch Instance
+  const dispatch = useDispatch();
   // Fetch Admin Function
   const fetchAdmin = async (data) => {
     const response = await axios.post("/admin/login", data);
@@ -23,21 +31,18 @@ const Login = () => {
 
   // Handler for form submission
 
-  const { mutate, isSuccess, data, isPending, isError } = useMutation({
+  const { mutate, isSuccess, data, isPending, isError, error } = useMutation({
     mutationKey: ["getAdminState"],
     mutationFn: fetchAdmin,
   });
   const onFinish = (values) => {
     mutate(formData);
-    console.log(data);
   };
   // Handler for form submission failure
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
 
-  // Toast notify Function
-  const notify = (msg) => toast(msg);
   // Handler for form field changes
   const handleInputChange = (e) => {
     const { name, value, checked, type } = e.target;
@@ -47,20 +52,20 @@ const Login = () => {
       [name]: newValue,
     }));
   };
-
+  // Handling Error
   useEffect(() => {
     if (isError) {
-      notify("Some error occurred, please try again.");
+      notify(error.response.data.message);
     }
   }, [isError]);
-  if (isSuccess) {
-    if (data.status === true) {
-      console.log(data);
+  useEffect(() => {
+    if (isSuccess && data.status === true) {
       localStorage.setItem("isLoggedIn", true);
+      dispatch(setLogin(true));
       notify("Login Success");
       navigate("/head/dashboard");
     }
-  }
+  }, [isSuccess, data, dispatch, navigate, notify]);
 
   return (
     <div className="login-page">

@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import ButtonComp from "../../../Components/ButtonComp";
 import { Link } from "react-router-dom";
 import Dashboard_Slider from "../Dashboard/Dashboard_Slider";
+import { useMutation } from "@tanstack/react-query";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+import { useEffect } from "react";
 const Add_Certificate = () => {
+  // State for handle form value
   const [formData, setFormData] = useState({
     applicantName: "",
     fatherName: "",
@@ -17,6 +23,8 @@ const Add_Certificate = () => {
     percent: "",
     place: "",
   });
+
+  // Handle form change function
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -24,24 +32,67 @@ const Add_Certificate = () => {
       [name]: value,
     });
   };
-  const handleSelectChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+
+  //   // Toast notify Function
+  const notify = (msg) => toast(msg);
+
+  // Post Data Function
+  const postData = async (postDataParams) => {
+    console.log(postDataParams);
+    const response = await axios.post(
+      "/students/create-certificate",
+      postDataParams
+    );
+    return response.data;
   };
+
+  // useMutation Function
+  const { mutate, isSuccess, data, isPending, isError, error } = useMutation({
+    mutationKey: ["postData"],
+    mutationFn: postData,
+  });
 
   // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
+    mutate(formData);
     // Do something with the form data, like send it to an API
-    console.log(formData);
   };
+
+  // if isError
+  useEffect(() => {
+    if (isError) {
+      notify(error.response.data.message);
+    }
+  }, [isError, data, isSuccess]);
+
+  useEffect(() => {
+    if (isSuccess) {
+      console.log(data);
+      notify(data.message);
+      // setting object as empty
+      setFormData({
+        applicantName: "",
+        fatherName: "",
+        gender: "",
+        course: "",
+        frenchise: "",
+        admissionDate: "",
+        fees: "",
+        registrationNumber: "",
+        serialNumber: "",
+        issueDate: "",
+        percent: "",
+        place: "",
+      });
+    }
+  }, [isSuccess]);
   return (
     <section className=" py-1 bg-blueGray-50">
       <Dashboard_Slider />
       <div className="w-full lg:w-9/12 px-4 mx-auto mt-6">
+        {/* Toast Container For Success Alert */}
+        <ToastContainer />
         <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
           <div className="rounded-t bg-white mb-0 px-6 py-6">
             <div className="text-center flex justify-between">

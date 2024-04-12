@@ -210,7 +210,6 @@ export default function StickyNavbar() {
 
   // Checking User Login State
   const { loginState } = useSelector((store) => store.login);
-  console.log(loginState);
   //Create navigate object using react router dom and useNavigate hook
   const navigate = useNavigate();
   React.useEffect(() => {

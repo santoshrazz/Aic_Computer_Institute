@@ -6,8 +6,10 @@ import All_Students from "../Admin/All_Students/All_Students";
 import Main_Dashboard from "../Admin/Dashboard/Main_Dashboard";
 import { useSelector } from "react-redux";
 const Admin_Route = () => {
+  // Getting login state value from store
   const { loginState } = useSelector((store) => store.login);
-  console.log(loginState);
+
+  // Creating navigate object
   const navigate = useNavigate();
 
   useEffect(() => {

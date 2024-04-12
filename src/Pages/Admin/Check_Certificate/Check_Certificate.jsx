@@ -3,24 +3,54 @@ import "./Check_Certificate.css";
 
 const Check_Certificate = () => {
   const [result, setResult] = useState(null);
+
+  // Handle form change
+  const [formData, setFormData] = useState({
+    serialNumber: "",
+    fatherName: "",
+  });
+  // Handle onChnage
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+  // Handle Submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+  };
   return (
     <div className="loginDiv w-full  bg-green-400 flex gap-2 justify-around flex-wrap items-center  min-h-screen">
       <div className="loginElementDiv  p-8 sm:w-10/12 md:w-1/3 bg-white  rounded-md text-slate-100">
-        <form action="" className="flex flex-col" method="get">
+        <form
+          action=""
+          className="flex flex-col"
+          method="post"
+          onSubmit={handleSubmit}
+        >
           <h4 className="text-black text-lg font-bold text-center">
             Check Certificate
           </h4>
           <input
-            type="text"
+            type="number"
             className="text-black bg-blue-gray-200 placeholder:text-black min-w-fit p-2 focus:border-none my-2 focus:outline-none"
             placeholder="Serial No."
             id="Email"
+            value={formData.serialNumber}
+            name="serialNumber"
+            onChange={handleOnChange}
           />
           <input
             type="text"
             placeholder="Father Name"
             className="text-black bg-blue-gray-200 placeholder:text-black min-w-fit p-2 focus:border-none my-2 focus:outline-none"
             id="password"
+            value={formData.fatherName}
+            name="fatherName"
+            onChange={handleOnChange}
           />
           <button className="btn bg-green-700 hover:bg-black text-white mx-auto my-4 text-center py-2 w-full">
             Find Certificate
