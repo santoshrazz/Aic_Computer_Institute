@@ -1,12 +1,52 @@
 import React from "react";
 import Dashboard_Slider from "../Dashboard/Dashboard_Slider";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { useEffect } from "react";
+import SpinnerComp from "../../../Components/Loadin_Button/SpinnerComp";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const All_Students = () => {
-  const array = new Array(12).fill(0);
+  const [result, setResult] = React.useState([]);
+
+  // Toast notify Function
+  const notify = (msg) => toast(msg);
+
+  // fetchStudent function to fetch Student
+  const fetchStudent = async () => {
+    const response = await axios.get("/students/allStudent");
+    return response.data;
+  };
+  // UseQuery Hook for fetching api
+  const { data, isLoading, isError, isSuccess, error } = useQuery({
+    queryKey: ["allStudent"],
+    queryFn: fetchStudent,
+    staleTime: 30000,
+  });
+
+  useEffect(() => {
+    if (isSuccess) {
+      notify(data.message);
+      setResult(data.result);
+    }
+  }, [isSuccess, data]);
+  useEffect(() => {
+    if (isError) {
+      console.log(error);
+      notify("Some Error in Fetching student");
+    }
+  }, [isError, data]);
+
+  if (isLoading) {
+    <SpinnerComp />;
+  }
+
   return (
     <>
       <Dashboard_Slider />
       <div className="container mx-auto px-4 sm:px-8">
+        <ToastContainer />
         <div className="py-8">
           <div>
             <h2 className="text-2xl font-semibold leading-tight">
@@ -33,7 +73,7 @@ const All_Students = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {array.map((_, ind) => {
+                  {result.map((ele, ind) => {
                     return (
                       <tr key={ind}>
                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -47,25 +87,25 @@ const All_Students = () => {
                             </div>
                             <div className="ml-3">
                               <p className="text-gray-900 whitespace-no-wrap font-bold">
-                                Harsh Kumar
+                                {ele?.name}
                               </p>
                               <p className="text-gray-600 whitespace-no-wrap">
-                                Vikrant Yadav
+                                {ele?.fatherName}
                               </p>
                             </div>
                           </div>
                         </td>
                         <td className=" px-5 py-5 border-b border-gray-200 bg-white text-sm">
                           <p className="text-gray-900 whitespace-no-wrap font-extrabold">
-                            $20,000
+                            {ele?.course}
                           </p>
                           <p className="text-gray-600 whitespace-no-wrap">
-                            90876
+                            {ele?.SerialNumber}
                           </p>
                         </td>
                         <td className="hidden md:block px-5 py-5 border-b border-gray-200 bg-white text-sm">
                           <p className="text-gray-900 whitespace-no-wrap">
-                            Sept 28, 2019
+                            {ele?.DateOFAdmission.slice(0, 10)}
                           </p>
                           <p className="text-gray-600 whitespace-no-wrap">
                             Due in 3 days

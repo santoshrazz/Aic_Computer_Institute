@@ -5,6 +5,7 @@ import { getUser } from "./Store/slice";
 import { useEffect } from "react";
 import axios from "axios";
 import SpinnerComp from "./Components/Loadin_Button/SpinnerComp";
+import { Accordian } from "./Pages/Accordian/Accordian";
 axios.defaults.withCredentials = true;
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
     return <SpinnerComp />;
   }
   return <RoutesComp />;
+  // return <Accordian />;
 }
 
 export default App;

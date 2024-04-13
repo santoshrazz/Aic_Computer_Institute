@@ -7,8 +7,12 @@ const initialState = {
 
 export const getUser = createAsyncThunk("getUser", async () => {
   try {
-    const isLoggedIn = localStorage.getItem("isLoggedIn");
-    if (isLoggedIn) {
+    const cookie = document.cookie;
+    if (!cookie) {
+      return false;
+    }
+    const myCookie = cookie.split("=")[1];
+    if (myCookie === "loggedIn") {
       return true;
     } else {
       return false;

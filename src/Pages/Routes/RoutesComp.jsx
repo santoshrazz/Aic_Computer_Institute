@@ -18,7 +18,7 @@ const RoutesComp = () => {
         <Route path="" element={<Home />} />
         <Route path="contact" element={<Contact />} />
         <Route path="check_certificate" element={<Check_Certificate />} />
-        <Route path="Course" element={<Course_Container />} />
+        <Route path="course" element={<Course_Container />} />
         <Route path="login" element={<Login />} />
         <Route path="frenchise" element={<Frenchise />} />
         <Route path="director" element={<Director />} />

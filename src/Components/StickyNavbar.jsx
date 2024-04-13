@@ -27,8 +27,10 @@ import { MdContactEmergency } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import { TbCertificate } from "react-icons/tb";
+import axios from "axios";
+import { setLogin } from "../Store/slice";
 const navListMenuItems = [
   {
     title: "Notifications",
@@ -37,10 +39,10 @@ const navListMenuItems = [
     redirect: "/",
   },
   {
-    title: "Add Student",
-    description: "You can add all Student From here.",
-    icon: PiStudent,
-    redirect: "/",
+    title: "Courses",
+    description: "Enroll in our quality courses",
+    icon: TbCertificate,
+    redirect: "/course",
   },
   {
     title: "Add Certificate",
@@ -210,8 +212,19 @@ export default function StickyNavbar() {
 
   // Checking User Login State
   const { loginState } = useSelector((store) => store.login);
+
   //Create navigate object using react router dom and useNavigate hook
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+  // Handle logout funtion
+  const handleLogOut = async () => {
+    const response = await axios.get("/admin/logout");
+    if (response.data.status) {
+      document.cookie = "myUserCookie=;";
+      dispatch(setLogin(false));
+    }
+  };
   React.useEffect(() => {
     window.addEventListener(
       "resize",
@@ -239,13 +252,20 @@ export default function StickyNavbar() {
               <Link to={"/head/dashboard"}>Dashboard</Link>
             </Button>
           )}
-          <Button
-            variant="gradient"
-            size="sm"
-            onClick={() => navigate("/login")}
-          >
-            {loginState ? "LogOut" : "Login"}
-          </Button>
+          {/* Show login button if user not logged in and show logout if user logged In */}
+          {loginState ? (
+            <Button variant="gradient" size="sm" onClick={handleLogOut}>
+              logOut
+            </Button>
+          ) : (
+            <Button
+              variant="gradient"
+              size="sm"
+              onClick={() => navigate("/login")}
+            >
+              login
+            </Button>
+          )}
         </div>
         <IconButton
           variant="text"
@@ -268,14 +288,19 @@ export default function StickyNavbar() {
               <Link to={"/head/dashboard"}>Dashboard</Link>
             </Button>
           )}
-          <Button
-            variant="gradient"
-            onClick={() => navigate("/login")}
-            size="sm"
-            fullWidth
-          >
-            {loginState ? "LogOut" : "Login"}
-          </Button>
+          {loginState ? (
+            <Button variant="gradient" size="sm" onClick={handleLogOut}>
+              logOut
+            </Button>
+          ) : (
+            <Button
+              variant="gradient"
+              size="sm"
+              onClick={() => navigate("/login")}
+            >
+              login
+            </Button>
+          )}
         </div>
       </Collapse>
     </Navbar>
