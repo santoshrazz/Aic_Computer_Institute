@@ -4,6 +4,37 @@ import { PiStudentFill, PiCertificateFill } from "react-icons/pi";
 import { MdEmail } from "react-icons/md";
 import { Button } from "@material-tailwind/react";
 const Main_Dashboard = () => {
+  const array = new Array(5).fill(0);
+  const dataArray = [
+    {
+      heading: "All Certificate",
+      desc: "lorme ipsum dolar sit generator and something else else",
+      icon: <MdEmail />,
+      navigateUrl: "/head/",
+      numbers: "45342",
+    },
+    {
+      heading: "All Student",
+      desc: "lorme ipsum dolar sit generator and something else else",
+      icon: <MdEmail />,
+      navigateUrl: "/head/",
+      numbers: "34232",
+    },
+    {
+      heading: "Add Student",
+      desc: "lorme ipsum dolar sit generator and something else else",
+      icon: <MdEmail />,
+      navigateUrl: "/head/",
+      numbers: "23434",
+    },
+    {
+      heading: "Add Certificate",
+      desc: "lorme ipsum dolar sit generator and something else else",
+      icon: <MdEmail />,
+      navigateUrl: "/head/",
+      numbers: "56542",
+    },
+  ];
   return (
     <>
       <Dashboard_Slider />
@@ -15,7 +46,35 @@ const Main_Dashboard = () => {
         </div>
         <div className="h-full min-h-screen w-full bg-gray-800 pt-12 p-4">
           <div className="grid gap-14 md:grid-cols-3 md:gap-5">
-            <div className="rounded-xl bg-white p-6 text-center shadow-xl">
+            {dataArray.map((ele, ind) => {
+              return (
+                <div
+                  data-aos-delay="300"
+                  key={ind}
+                  className="rounded-xl bg-white p-6 text-center shadow-xl"
+                >
+                  <div className="mx-auto flex h-16 w-16 -translate-y-12 cursor-pointer transform items-center justify-center rounded-full bg-teal-400 shadow-lg shadow-teal-500/40">
+                    <PiCertificateFill className="text-2xl text-white" />
+                  </div>
+                  <h1 className="text-darken mb-3 pt-3 text-xl font-medium lg:h-14 lg:px-14">
+                    {ele.heading}
+                    <p>{ele.numbers}</p>
+                  </h1>
+                  <p className="px-4 text-gray-500">{ele.desc}</p>
+                  <Button>Check</Button>;
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Main_Dashboard;
+{
+  /* <div className="rounded-xl bg-white p-6 text-center shadow-xl">
               <div className="mx-auto flex h-16 w-16 -translate-y-12 cursor-pointer transform items-center justify-center rounded-full bg-teal-400 shadow-lg shadow-teal-500/40">
                 <PiStudentFill className="text-2xl text-white" />
               </div>
@@ -44,30 +103,5 @@ const Main_Dashboard = () => {
                 iure inventore amet modi accusantium vero perspiciatis, incidunt
                 dicta sed aspernatur!
               </p>
-            </div>
-            <div
-              data-aos-delay="300"
-              className="rounded-xl bg-white p-6 text-center shadow-xl"
-            >
-              <div className="mx-auto flex h-16 w-16 -translate-y-12 cursor-pointer transform items-center justify-center rounded-full bg-teal-400 shadow-lg shadow-teal-500/40">
-                <PiCertificateFill className="text-2xl text-white" />
-              </div>
-              <h1 className="text-darken mb-3 pt-3 text-xl font-medium lg:h-14 lg:px-14">
-                All Students
-                <p>93783</p>
-              </h1>
-              <p className="px-4 text-gray-500">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-                iure inventore amet modi accusantium vero perspiciatis, incidunt
-                dicta sed aspernatur!
-              </p>
-              <Button>Check</Button>;
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
-
-export default Main_Dashboard;
+            </div> */
+}

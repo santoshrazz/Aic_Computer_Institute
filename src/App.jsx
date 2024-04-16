@@ -1,11 +1,9 @@
-import Edit_Profile from "./Pages/Admin/Edit_Profile/Edit_Profile";
 import RoutesComp from "./Pages/Routes/RoutesComp";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "./Store/slice";
 import { useEffect } from "react";
 import axios from "axios";
 import SpinnerComp from "./Components/Loadin_Button/SpinnerComp";
-import { Accordian } from "./Pages/Accordian/Accordian";
 axios.defaults.withCredentials = true;
 
 function App() {
