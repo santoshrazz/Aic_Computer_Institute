@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import "./Contact.css";
+import axios from "axios";
+import { useEffect } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Contact = () => {
+  // useState to handle formState
   const [formData, setformData] = useState({
     name: "",
     email: "",
@@ -8,6 +15,38 @@ const Contact = () => {
     message: "",
   });
 
+  // notify funtion to show toast notification
+  const notify = (msg) => toast(msg);
+
+  // Post data funtion to post data on server
+  const postData = async (data) => {
+    try {
+      const response = await axios.post("/students/saveRequest", data);
+      return response.data;
+    } catch (error) {
+      console.log(`Error at postData on contact component`, error);
+      return error.response.data;
+    }
+  };
+  // useMutation hook for optimised query
+  const { mutate, isSuccess, data, isError, error } = useMutation({
+    mutationKey: ["postData"],
+    mutationFn: postData,
+  });
+  useEffect(() => {
+    if (isSuccess) {
+      console.log(data);
+      notify(data.message);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (isError) {
+      console.log(error);
+      notify(error.message);
+    }
+  }, [error]);
+  // Handle formChange function to change the state of the form
   const handleFormChange = (e) => {
     const { name, value } = e.target;
     setformData((prev) => ({
@@ -16,12 +55,15 @@ const Contact = () => {
     }));
   };
 
+  // Handle Submit Form Funtion to send DB Request
   const handleSubmitForm = (e) => {
     e.preventDefault();
     console.log(formData);
+    mutate(formData);
   };
   return (
     <div className="container">
+      <ToastContainer />
       <span className="big-circle"></span>
       <img src="img/shape.png" className="square" alt="" />
       <div className="form">
