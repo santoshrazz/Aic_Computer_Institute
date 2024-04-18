@@ -16,7 +16,6 @@ function App() {
     return <SpinnerComp />;
   }
   return <RoutesComp />;
-  // return <Accordian />;
 }
 
 export default App;

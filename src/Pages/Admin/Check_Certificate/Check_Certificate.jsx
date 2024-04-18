@@ -4,6 +4,7 @@ import axios from "axios";
 import { useMutation } from "@tanstack/react-query";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 const Check_Certificate = () => {
   const [result, setResult] = useState(null);
@@ -13,6 +14,15 @@ const Check_Certificate = () => {
     serialNumber: "",
     fatherName: "",
   });
+
+  // Navigate Object
+  const navigate = useNavigate();
+
+  // navigateTodownload fuction to redirect on download certificate component
+  const navigateToDownload = () => {
+    console.log(result);
+    navigate("/download_certificate", { state: result });
+  };
   // Handle onChnage
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -147,7 +157,10 @@ const Check_Certificate = () => {
                 </tr>
               </tbody>
             </table>
-            <button className="text-center mx-auto bg-black text-white w-full hover:bg-blue-900 p-3">
+            <button
+              className="text-center mx-auto bg-black text-white w-full hover:bg-blue-900 p-3"
+              onClick={navigateToDownload}
+            >
               Download Certificate
             </button>
           </div>

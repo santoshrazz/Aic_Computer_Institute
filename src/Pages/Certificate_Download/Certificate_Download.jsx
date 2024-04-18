@@ -1,41 +1,83 @@
-import React, { useCallback, useRef } from 'react'
-import CertificateImage from '../../Assets/Certificate.jpg'
-import { toPng } from 'html-to-image';
+import React, { useCallback, useRef } from "react";
+import CertificateImage from "../../Assets/Certificate.jpg";
+import { toPng } from "html-to-image";
+import { useLocation } from "react-router-dom";
 const Certificate_Download = () => {
-    const ref = useRef(null);
-    const onButtonClick = useCallback(() => {
-        if (ref.current === null) {
-            return
-        }
+  const ref = useRef(null);
 
-        toPng(ref.current, { cacheBust: true, })
-            .then((dataUrl) => {
-                const link = document.createElement('a')
-                link.download = 'my-image-name.png'
-                link.href = dataUrl
-                link.click()
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    }, [ref])
+  // useLocation hook to get data from check_certificate component
+  const location = useLocation();
+  console.log(location.state);
+  if (!location.state) {
     return (
-        <div className="min-h-screen  relative bg-red-500 w-full" ref={ref}>
-            <div className="img"><img src={CertificateImage} className="" alt="Certificate" /></div>
-            <p className="font-bold registration absolute top-14 left-56 text-xl">12/ADCA/23/SARB/30669</p>
-            <p className="font-bold serial absolute top-14 right-24 text-xl">45678</p>
-            <p className="font-bold Name absolute top-[480px] left-[450px] text-xl sm:text-lg md:text-xl lg:text-2xl">SANTOSH KUMAR</p>
-            <p className="font-bold father absolute top-[550px] left-[450px] text-xl sm:text-lg md:text-xl lg:text-2xl">BHAIRAV YADAV</p>
-            <p className="font-bold course absolute top-[610px] left-[550px] text-xl sm:text-lg md:text-xl lg:text-2xl">HINDI TYPING</p>
-            <p className="font-bold center absolute top-[680px] left-[250px] text-xl sm:text-lg md:text-xl lg:text-2xl">AIC SARAI BHAGALPUR</p>
-            <p className="font-bold c_duration absolute top-[740px] left-[250px] text-xl sm:text-lg md:text-xl lg:text-2xl">12 Months</p>
-            <p className="font-bold speed absolute top-[740px] left-[950px] text-xl sm:text-lg md:text-xl lg:text-2xl">84 WPM</p>
-            <p className="font-bold doi absolute top-[940px] left-[250px] text-xl sm:text-lg md:text-xl lg:text-2xl">12/4/2023</p>
-            <p className="font-bold speed absolute top-[970px] left-[250px] text-xl sm:text-lg md:text-xl lg:text-2xl">BHAGALPUR</p>
-            <button className=' bg-deep-orange-800 m-10 text-white' onClick={onButtonClick}>Download</button>
+      <h2>
+        Unable to download certificate go to <a href="/">Home</a>
+      </h2>
+    );
+  }
+  // Funtion for download certificate
+  const onButtonClick = useCallback(() => {
+    if (ref.current === null) {
+      return;
+    }
+    toPng(ref.current, { cacheBust: true })
+      .then((dataUrl) => {
+        const link = document.createElement("a");
+        link.download = "my-image-name.png";
+        link.href = dataUrl;
+        link.click();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [ref]);
+  return (
+    <>
+      <div className=" scroll-auto  relative w-[200vh]" ref={ref}>
+        <div className="img">
+          <img src={CertificateImage} className="" alt="Certificate" />
         </div>
+        <p className="font-bold registration absolute top-[6%] left-[17%] text-xl">
+          {location.state?.RegistrationNumber}
+        </p>
+        <p className="font-bold serial absolute top-[5%] right-[6%] text-xl">
+          {location.state?.SerialNumber}
+        </p>
+        <p className="font-bold Name absolute top-[47%] left-[38%]  text-2xl">
+          {location.state?.name}
+        </p>
+        <p className="font-bold father absolute top-[53%] left-[38%]  text-2xl">
+          {location.state?.fatherName}
+        </p>
+        <p className="font-bold course absolute top-[60%] left-[40%]  text-2xl">
+          {location.state?.course}
+        </p>
+        <p className="font-bold center absolute top-[65%] left-[22%]  text-2xl">
+          {location.state?.frenchise}
+        </p>
+        <p className="font-bold c_duration absolute top-[72%] left-[22%]  text-2xl">
+          12 Months
+        </p>
+        <p className="font-bold speed absolute top-[72%] right-[20%]  text-2xl">
+          {location.state?.percentage}
+        </p>
+        <p className="font-bold doi absolute bottom-[5%] left-[20%]  text-2xl">
+          {location.state?.DateOfIssue?.slice(0, 10)}
+        </p>
+        <p className="font-bold speed absolute  bottom-[2%] left-[20%]  text-2xl">
+          {location.state?.place}
+        </p>
+      </div>
+      <div className="button flex justify-center items-center ">
+        <button
+          className=" bg-blue-gray-500 p-4 text-white rounded-lg font-body"
+          onClick={onButtonClick}
+        >
+          Download Certificate
+        </button>
+      </div>
+    </>
+  );
+};
 
-    )
-}
-
-export default Certificate_Download
+export default Certificate_Download;

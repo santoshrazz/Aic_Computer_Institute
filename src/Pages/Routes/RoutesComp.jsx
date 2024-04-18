@@ -9,6 +9,8 @@ import Admin_Route from "./Admin_Route";
 import Frenchise from "../Franchise/Frenchise";
 import Director from "../Director/Director";
 import Check_Certificate from "../Admin/Check_Certificate/Check_Certificate";
+import { Add_Frenchise } from "../Admin/Add_Frenchise/Add_Frenchise";
+import Certificate_Download from "../Certificate_Download/Certificate_Download";
 
 const RoutesComp = () => {
   return (
@@ -18,10 +20,12 @@ const RoutesComp = () => {
         <Route path="" element={<Home />} />
         <Route path="contact" element={<Contact />} />
         <Route path="check_certificate" element={<Check_Certificate />} />
+        <Route path="download_certificate" element={<Certificate_Download />} />
         <Route path="course" element={<Course_Container />} />
         <Route path="login" element={<Login />} />
         <Route path="frenchise" element={<Frenchise />} />
         <Route path="director" element={<Director />} />
+        <Route path="add_frenchise" element={<Add_Frenchise />} />
         <Route path="head/*" element={<Admin_Route />} />
       </Routes>
     </BrowserRouter>
