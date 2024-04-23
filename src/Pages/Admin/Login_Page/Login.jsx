@@ -35,7 +35,7 @@ const Login = () => {
     mutationKey: ["getAdminState"],
     mutationFn: fetchAdmin,
   });
-  const onFinish = (values) => {
+  const onFinish = () => {
     mutate(formData);
   };
   // Handler for form submission failure

@@ -24,28 +24,26 @@ const Add_Certificate = () => {
     percent: "",
     place: "",
   });
-  const [editData, setEditData] = useState(null);
+  const [editData, setEditData] = useState();
 
   // Get data from useLocationHook if admin wants to edit certificate
 
   const location = useLocation();
   useEffect(() => {
-    setEditData(location.state);
-    console.log(editData);
-    if (editData) {
+    if (location.state) {
       setFormData({
-        applicantName: editData.name,
-        fatherName: editData.fatherName,
-        gender: editData.Gender,
-        course: editData.course,
-        frenchise: editData.frenchise,
-        admissionDate: editData.DateOFAdmission.slice(0, 10),
-        fees: editData.fees,
-        registrationNumber: editData.RegistrationNumber,
-        serialNumber: editData.SerialNumber,
-        issueDate: editData.DateOfIssue.slice(0, 10),
-        percent: editData.percentage,
-        place: editData.place,
+        applicantName: location.state?.name,
+        fatherName: location.state?.fatherName,
+        gender: location.state?.Gender,
+        course: location.state?.course,
+        frenchise: location.state?.frenchise,
+        admissionDate: location.state?.DateOFAdmission?.slice(0, 10),
+        fees: location.state?.fees,
+        registrationNumber: location.state?.RegistrationNumber,
+        serialNumber: location.state?.SerialNumber,
+        issueDate: location.state?.DateOfIssue?.slice(0, 10),
+        percent: location.state?.percentage,
+        place: location.state?.place,
       });
     }
   }, []);
@@ -70,9 +68,26 @@ const Add_Certificate = () => {
         "/students//update-certificate",
         formData
       );
-      console.log(response.data);
+      if (response.data.status) {
+        notify(response.data.message);
+        setFormData({
+          applicantName: response.data.result.name,
+          fatherName: response.data.result.fatherName,
+          gender: response.data.result.Gender,
+          course: response.data.result.course,
+          frenchise: response.data.result.frenchise,
+          admissionDate: response.data.result.DateOFAdmission?.slice(0, 10),
+          fees: response.data.result.fees,
+          registrationNumber: response.data.result.RegistrationNumber,
+          serialNumber: response.data.result.SerialNumber,
+          issueDate: response.data.result.DateOfIssue?.slice(0, 10),
+          percent: response.data.result.percentage,
+          place: response.data.result.place,
+        });
+      }
     } catch (error) {
       console.log(error);
+      notify(error.response.data.message);
     }
   };
   // Post Data Function
@@ -391,7 +406,7 @@ const Add_Certificate = () => {
                     />
                   </div>
                 </div>
-                {editData ? (
+                {location.state ? (
                   <div className="w-full px-4">
                     <div className="relative flex justify-center items-center w-full mb-3">
                       <button
