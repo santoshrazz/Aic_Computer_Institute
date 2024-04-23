@@ -7,7 +7,6 @@ const Certificate_Download = () => {
 
   // useLocation hook to get data from check_certificate component
   const location = useLocation();
-  console.log(location.state);
   if (!location.state) {
     return (
       <h2>

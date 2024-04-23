@@ -1,52 +1,78 @@
 import React from "react";
 import Dashboard_Slider from "./Dashboard_Slider";
 import { PiStudentFill, PiCertificateFill } from "react-icons/pi";
+import { FaCodeBranch } from "react-icons/fa6";
+import { CgProfile } from "react-icons/cg";
 import { MdEmail } from "react-icons/md";
 import { Button } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 const Main_Dashboard = () => {
-  const array = new Array(5).fill(0);
   const dataArray = [
     {
       heading: "All Certificate",
       desc: "lorme ipsum dolar sit generator and something else else",
-      icon: <MdEmail />,
-      navigateUrl: "/head/",
+      icon: <PiCertificateFill />,
       numbers: "45342",
+      btnText: "Check",
+      redirectUrl: "/head/profile",
     },
+    {
+      heading: "Add Certificate",
+      desc: "lorme ipsum dolar sit generator and something else else",
+      icon: <PiCertificateFill />,
+      numbers: "56542",
+      btnText: "Add",
+      redirectUrl: "/head/profile",
+    },
+
     {
       heading: "All Student",
       desc: "lorme ipsum dolar sit generator and something else else",
-      icon: <MdEmail />,
-      navigateUrl: "/head/",
+      icon: <PiStudentFill />,
       numbers: "34232",
+      btnText: "Check",
+      redirectUrl: "/head/profile",
     },
     {
       heading: "Add Student",
       desc: "lorme ipsum dolar sit generator and something else else",
       icon: <MdEmail />,
-      navigateUrl: "/head/",
       numbers: "23434",
+      btnText: "Add",
+      redirectUrl: "/head/profile",
     },
     {
-      heading: "Add Certificate",
+      heading: "Search Student",
       desc: "lorme ipsum dolar sit generator and something else else",
-      icon: <MdEmail />,
-      navigateUrl: "/head/",
-      numbers: "56542",
+      icon: <PiStudentFill />,
+      numbers: "23434",
+      btnText: "Add",
+      redirectUrl: "/head/search_student",
     },
+
     {
       heading: "Add Frenchise",
       desc: "lorme ipsum dolar sit generator and something else else",
-      icon: <MdEmail />,
-      navigateUrl: "/head/",
+      icon: <FaCodeBranch />,
       numbers: "56542",
+      btnText: "Add",
+      redirectUrl: "/head/profile",
     },
     {
       heading: "All Frenchise",
       desc: "lorme ipsum dolar sit generator and something else else",
-      icon: <MdEmail />,
-      navigateUrl: "/head/",
+      icon: <FaCodeBranch />,
       numbers: "56542",
+      btnText: "Check",
+      redirectUrl: "/head/profile",
+    },
+    {
+      heading: "Your Profile",
+      desc: "lorme ipsum dolar sit generator and something else else",
+      icon: <CgProfile />,
+      numbers: "56542",
+      btnText: "Visit",
+      redirectUrl: "/head/profile",
     },
   ];
   return (
@@ -67,15 +93,18 @@ const Main_Dashboard = () => {
                   key={ind}
                   className="rounded-xl bg-white p-6 text-center shadow-xl transform translate-y-4 hover:translate-y-8 duration-500 ease-in-out  hover:scale-105 "
                 >
-                  <div className="mx-auto flex h-16 w-16 -translate-y-12 cursor-pointer transform items-center justify-center rounded-full bg-teal-400 shadow-lg shadow-teal-500/40">
-                    <PiCertificateFill className="text-2xl text-white" />
+                  <div className=" text-white text-3xl mx-auto flex h-16 w-16 -translate-y-12 cursor-pointer transform items-center justify-center rounded-full bg-teal-400 shadow-lg shadow-teal-500/40">
+                    {ele.icon}
                   </div>
                   <h1 className="text-darken mb-3 pt-3 text-xl font-medium lg:h-14 lg:px-14">
                     {ele.heading}
                     <p>{ele.numbers}</p>
                   </h1>
                   <p className="px-4 text-gray-500">{ele.desc}</p>
-                  <Button>Check</Button>;
+                  <Button>
+                    <Link to={ele.redirectUrl}>{ele.btnText}</Link>
+                  </Button>
+                  ;
                 </div>
               );
             })}

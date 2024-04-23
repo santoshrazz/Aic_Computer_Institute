@@ -6,6 +6,7 @@ import { useMutation } from "@tanstack/react-query";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 const Add_Certificate = () => {
   // State for handle form value
@@ -23,7 +24,31 @@ const Add_Certificate = () => {
     percent: "",
     place: "",
   });
+  const [editData, setEditData] = useState(null);
 
+  // Get data from useLocationHook if admin wants to edit certificate
+
+  const location = useLocation();
+  useEffect(() => {
+    setEditData(location.state);
+    console.log(editData);
+    if (editData) {
+      setFormData({
+        applicantName: editData.name,
+        fatherName: editData.fatherName,
+        gender: editData.Gender,
+        course: editData.course,
+        frenchise: editData.frenchise,
+        admissionDate: editData.DateOFAdmission.slice(0, 10),
+        fees: editData.fees,
+        registrationNumber: editData.RegistrationNumber,
+        serialNumber: editData.SerialNumber,
+        issueDate: editData.DateOfIssue.slice(0, 10),
+        percent: editData.percentage,
+        place: editData.place,
+      });
+    }
+  }, []);
   // Handle form change function
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,18 +61,35 @@ const Add_Certificate = () => {
   //   // Toast notify Function
   const notify = (msg) => toast(msg);
 
+  //----------> Update Certificate Funtion  <----------------------
+  const updateData = async (e) => {
+    e.preventDefault();
+    console.log(formData);
+    try {
+      const response = await axios.put(
+        "/students//update-certificate",
+        formData
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   // Post Data Function
   const postData = async (postDataParams) => {
-    console.log(postDataParams);
-    const response = await axios.post(
-      "/students/create-certificate",
-      postDataParams
-    );
-    return response.data;
+    try {
+      const response = await axios.post(
+        "/students/create-certificate",
+        postDataParams
+      );
+      return response.data;
+    } catch (error) {
+      console.log("Error at postdata", error);
+    }
   };
 
-  // useMutation Function
-  const { mutate, isSuccess, data, isPending, isError, error } = useMutation({
+  // useMutation Function for add Certificate
+  const { mutate, isSuccess, data, isError, error } = useMutation({
     mutationKey: ["postData"],
     mutationFn: postData,
   });
@@ -108,7 +150,7 @@ const Add_Certificate = () => {
             </div>
           </div>
           <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
-            <form onSubmit={handleSubmit}>
+            <form>
               <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
                 Add Details
               </h6>
@@ -349,12 +391,29 @@ const Add_Certificate = () => {
                     />
                   </div>
                 </div>
-
-                <div className="w-full px-4">
-                  <div className="relative flex justify-center items-center w-full mb-3">
-                    <ButtonComp text="Submit" />
+                {editData ? (
+                  <div className="w-full px-4">
+                    <div className="relative flex justify-center items-center w-full mb-3">
+                      <button
+                        className="bg-black rounded-md text-white px-4 py-2"
+                        onClick={updateData}
+                      >
+                        Update
+                      </button>
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <div className="w-full px-4">
+                    <div className="relative flex justify-center items-center w-full mb-3">
+                      <button
+                        onClick={handleSubmit}
+                        className="bg-black rounded-md text-white px-4 py-2"
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             </form>
           </div>

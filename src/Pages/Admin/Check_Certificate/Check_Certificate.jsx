@@ -20,7 +20,6 @@ const Check_Certificate = () => {
 
   // navigateTodownload fuction to redirect on download certificate component
   const navigateToDownload = () => {
-    console.log(result);
     navigate("/download_certificate", { state: result });
   };
   // Handle onChnage
@@ -53,6 +52,9 @@ const Check_Certificate = () => {
   useEffect(() => {
     if (isSuccess) {
       console.log(data);
+      if (!data) {
+        notify("No student Found");
+      }
       notify(data.message);
       setResult(data?.student);
     }
