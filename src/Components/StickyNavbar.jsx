@@ -19,12 +19,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { IoMdNotifications } from "react-icons/io";
-import { PiStudent } from "react-icons/pi";
-import { FaUserLarge } from "react-icons/fa6";
 import { FaCodeBranch } from "react-icons/fa";
-import { GrCertificate } from "react-icons/gr";
-import { MdContactEmergency } from "react-icons/md";
-import { FaSearch } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -45,46 +40,22 @@ const navListMenuItems = [
     redirect: "/course",
   },
   {
-    title: "Add Certificate",
-    description: "You can Add Certificate of Students from here",
-    icon: GrCertificate,
-    redirect: "/head/add_certificate",
-  },
-  {
-    title: "All Certificate",
-    description: "Check All Your added Certificate",
-    icon: GrCertificate,
-    redirect: "/",
-  },
-  {
-    title: "Profile",
-    description: "Edit Your Profile",
-    icon: FaUserLarge,
-    redirect: "/",
-  },
-  {
-    title: "All Messages",
-    description: "Check  All Requests",
-    icon: MdContactEmergency,
-    redirect: "/",
-  },
-  {
     title: "All Frenchaise",
     description: "Find the perfect solution for your needs.",
     icon: FaCodeBranch,
     redirect: "/frenchise",
   },
   {
-    title: "Send Email",
-    description: "Send email to register students",
-    icon: HiOutlineMail,
-    redirect: "/",
+    title: "Write a Review",
+    description: "Find the perfect solution for your needs.",
+    icon: FaCodeBranch,
+    redirect: "https://maps.app.goo.gl/jrHACjGnV6XC7Yws8",
   },
   {
-    title: "Search Student",
-    description: "Search for a student",
-    icon: FaSearch,
-    redirect: "/",
+    title: "Request Demo",
+    description: "Send email to register students",
+    icon: HiOutlineMail,
+    redirect: "/contact",
   },
 ];
 

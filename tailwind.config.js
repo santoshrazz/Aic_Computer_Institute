@@ -10,6 +10,9 @@ module.exports = withMT({
       backgroundImage: {
         hero: "url('./src/Assets/Computer_BG3.jpg')",
       },
+      screens: {
+        xs: "300px",
+      },
       keyframes: {
         typing: {
           "0%": {

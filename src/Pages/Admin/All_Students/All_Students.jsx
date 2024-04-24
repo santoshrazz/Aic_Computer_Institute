@@ -15,7 +15,7 @@ const All_Students = () => {
 
   // fetchStudent function to fetch Student
   const fetchStudent = async () => {
-    const response = await axios.get("/students/allStudent");
+    const response = await axios.get("/students/all_Certificate");
     return response.data;
   };
   // UseQuery Hook for fetching api

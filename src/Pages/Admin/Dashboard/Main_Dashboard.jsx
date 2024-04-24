@@ -14,7 +14,7 @@ const Main_Dashboard = () => {
       icon: <PiCertificateFill />,
       numbers: "45342",
       btnText: "Check",
-      redirectUrl: "/head/profile",
+      redirectUrl: "/head/all_Certificate",
     },
     {
       heading: "Add Certificate",
@@ -22,24 +22,16 @@ const Main_Dashboard = () => {
       icon: <PiCertificateFill />,
       numbers: "56542",
       btnText: "Add",
-      redirectUrl: "/head/profile",
+      redirectUrl: "/head/add_certificate",
     },
 
     {
-      heading: "All Student",
+      heading: "All Student Request",
       desc: "lorme ipsum dolar sit generator and something else else",
       icon: <PiStudentFill />,
       numbers: "34232",
       btnText: "Check",
-      redirectUrl: "/head/profile",
-    },
-    {
-      heading: "Add Student",
-      desc: "lorme ipsum dolar sit generator and something else else",
-      icon: <MdEmail />,
-      numbers: "23434",
-      btnText: "Add",
-      redirectUrl: "/head/profile",
+      redirectUrl: "/head/view_student",
     },
     {
       heading: "Search Student",
@@ -64,7 +56,7 @@ const Main_Dashboard = () => {
       icon: <FaCodeBranch />,
       numbers: "56542",
       btnText: "Check",
-      redirectUrl: "/head/profile",
+      redirectUrl: "/frenchise",
     },
     {
       heading: "Your Profile",
