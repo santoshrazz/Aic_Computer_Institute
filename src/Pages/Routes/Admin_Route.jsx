@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import Search_Student from "../Admin/Search_Student/Search_Student";
 import View_Student from "../Admin/View_Student/View_Student";
 import Profile from "../Admin/Profile/Profile";
+import Add_Frenchise from "../Franchise/Add_Frenchise";
 const Admin_Route = () => {
   // Getting login state value from store
   const { loginState } = useSelector((store) => store.login);
@@ -25,6 +26,7 @@ const Admin_Route = () => {
       <Routes>
         <Route path="add_certificate" element={<Add_Certificate />} />
         <Route path="all_Certificate" element={<All_Students />} />
+        <Route path="add_frenchise" element={<Add_Frenchise />} />
         <Route path="search_student" element={<Search_Student />} />
         <Route path="view_student" element={<View_Student />} />
         <Route path="profile" element={<Profile />} />

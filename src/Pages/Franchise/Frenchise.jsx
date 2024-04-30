@@ -1,6 +1,7 @@
 import React from "react";
 import "./Frenchise.css";
 import ComputerCenter from "../../Assets/Computer_Center_Image.jpg";
+import { Link } from "react-router-dom";
 const Frenchise = () => {
   const frenchise = [
     {
@@ -36,8 +37,8 @@ const Frenchise = () => {
                   key={ind}
                   className="w-full md:w-1/2 lg:w-1/4 mb-4 lg:mb-0"
                 >
-                  <a
-                    href="#"
+                  <Link
+                    to={"/frenchise"}
                     className="h-72 md:h-96 block group relative mx-2 overflow-hidden shadow-lg"
                   >
                     <img
@@ -62,21 +63,11 @@ const Frenchise = () => {
                         </button>
                       </div>
                     </div>
-                  </a>
+                  </Link>
                 </div>
               );
             })}
           </div>
-        </div>
-        <div className="text-center text-white text-sm">
-          Created by{" "}
-          <a
-            href="https://stephenainsworth.com"
-            target="_blank"
-            title="Stephen Ainsworth - Web Developer"
-          >
-            Stephen Ainsworth
-          </a>
         </div>
       </div>
     </div>
