@@ -1,27 +1,26 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
-  loginState: true,
+  loginState: false,
   isLoading: true,
 };
 
 export const getUser = createAsyncThunk("getUser", async () => {
-  return true;
-  // try {
-  //   const cookie = document.cookie;
-  //   if (!cookie) {
-  //     return false;
-  //   }
-  //   const myCookie = cookie.split("=")[1];
-  //   if (myCookie === "loggedIn") {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // } catch (error) {
-  //   console.error("Error fetching user:", error);
-  //   throw error;
-  // }
+  try {
+    const cookie = document.cookie;
+    if (!cookie) {
+      return false;
+    }
+    const myCookie = cookie.split("=")[1];
+    if (myCookie === "loggedIn") {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (error) {
+    console.error("Error fetching user:", error);
+    throw error;
+  }
 });
 
 const loginSlice = createSlice({

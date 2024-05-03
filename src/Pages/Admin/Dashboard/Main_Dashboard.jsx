@@ -48,7 +48,7 @@ const Main_Dashboard = () => {
       icon: <FaCodeBranch />,
       numbers: "56542",
       btnText: "Add",
-      redirectUrl: "/head/profile",
+      redirectUrl: "/head/add_frenchise",
     },
     {
       heading: "All Frenchise",

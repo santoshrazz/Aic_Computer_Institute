@@ -2,8 +2,12 @@ import { useEffect, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Add_Frenchise() {
+  // useNavigate object
+  const navigate = useNavigate();
+  // Notify funtion to send toast notification
   const notify = (msg) => toast(msg);
   // useState for formChange
   const [formdata, setformdata] = useState({
@@ -16,7 +20,6 @@ export default function Add_Frenchise() {
   // Handle Form Change
   const handleFormChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
     setformdata({ ...formdata, [name]: value });
   };
 
@@ -61,6 +64,9 @@ export default function Add_Frenchise() {
     if (data) {
       console.log(data);
       notify(data.message);
+      setTimeout(() => {
+        navigate("/allfrenchise");
+      }, 1000);
     }
   }, [data, isSuccess]);
 

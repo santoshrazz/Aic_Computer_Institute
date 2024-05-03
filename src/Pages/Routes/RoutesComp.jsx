@@ -23,7 +23,7 @@ const RoutesComp = () => {
         <Route path="download_certificate" element={<Certificate_Download />} />
         <Route path="course" element={<Course_Container />} />
         <Route path="login" element={<Login />} />
-        <Route path="frenchise" element={<Frenchise />} />
+        <Route path="allfrenchise" element={<Frenchise />} />
         <Route path="director" element={<Director />} />
         <Route path="add_frenchise" element={<Add_Frenchise />} />
         <Route path="head/*" element={<Admin_Route />} />

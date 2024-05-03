@@ -43,7 +43,7 @@ const navListMenuItems = [
     title: "All Frenchaise",
     description: "Find the perfect solution for your needs.",
     icon: FaCodeBranch,
-    redirect: "/frenchise",
+    redirect: "/allfrenchise",
   },
   {
     title: "Write a Review",
