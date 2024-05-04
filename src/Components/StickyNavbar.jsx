@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import {
   Navbar,
@@ -26,6 +26,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { TbCertificate } from "react-icons/tb";
 import axios from "axios";
 import { setLogin } from "../Store/slice";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { gsapTimeline } from "../Constants/Const";
 const navListMenuItems = [
   {
     title: "Notifications",
@@ -146,7 +149,7 @@ function NavList() {
         to="/"
         variant="small"
         color="blue-gray"
-        className="font-medium"
+        className="font-medium home"
       >
         <ListItem className="flex items-center gap-2 py-2 pr-4">Home</ListItem>
       </Typography>
@@ -156,7 +159,7 @@ function NavList() {
         to="/check_certificate"
         variant="small"
         color="blue-gray"
-        className="font-medium"
+        className="font-medium check_certificate"
       >
         <ListItem className="flex items-center gap-2 py-2 pr-4">
           Check_Certificate
@@ -168,7 +171,7 @@ function NavList() {
         to="/contact"
         variant="small"
         color="blue-gray"
-        className="font-medium"
+        className="font-medium contact"
       >
         <ListItem className="flex items-center gap-2 py-2 pr-4">
           Contact Us
@@ -203,14 +206,32 @@ export default function StickyNavbar() {
     );
   }, []);
 
+  //--------------> GSAP Animation <-------------------------
+  useGSAP(() => {
+    gsapTimeline.from(".main_nav", {
+      y: -200,
+      opacity: 0,
+      duration: 1,
+      delay: 1,
+    });
+    gsapTimeline.from(".home , .check_certificate, .contact,.aic_Computer", {
+      y: -100,
+      opacity: 0,
+      duration: 1,
+      rotate: 200,
+      delay: 0,
+      stagger: 1,
+      yoyo: true,
+    });
+  });
   return (
-    <Navbar className="mx-auto max-w-screen-xl px-4 py-2 hover:drop-shadow-2xl">
+    <Navbar className="mx-auto main_nav max-w-screen-xl px-4 py-2 hover:drop-shadow-2xl">
       <div className="flex items-center justify-between text-blue-gray-900">
         <Typography
           as={Link}
           to="/"
           variant="h6"
-          className="mr-4 cursor-pointer py-1.5 lg:ml-2"
+          className="mr-4 cursor-pointer py-1.5 lg:ml-2 aic_Computer"
         >
           Aic Computer
         </Typography>

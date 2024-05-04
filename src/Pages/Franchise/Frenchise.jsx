@@ -30,9 +30,6 @@ const Frenchise = () => {
   if (isLoading) {
     <h3>Loading....</h3>;
   }
-  if (isError) {
-    notify("Error finding frenchise");
-  }
   return (
     <div className="bg-[#40678d] min-h-screen">
       <h3 className=" text-center font-extrabold text-5xl text-white">

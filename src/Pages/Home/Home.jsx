@@ -16,11 +16,11 @@ const Home = () => {
   return (
     <div>
       <Hero />
-      <TextRevealCard
+      {/* <TextRevealCard
         children={"Best Computer Institute"}
         className={"bg-black"}
-      />
-      {/* <TextRevealSection /> */}
+      /> */}
+      <TextRevealSection />
       <Carousel />
       <Course_Container />
       <About_Container />
