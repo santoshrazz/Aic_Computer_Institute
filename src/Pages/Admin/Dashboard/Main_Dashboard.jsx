@@ -50,22 +50,6 @@ const Main_Dashboard = () => {
       btnText: "Add",
       redirectUrl: "/head/add_frenchise",
     },
-    {
-      heading: "All Frenchise",
-      desc: "lorme ipsum dolar sit generator and something else else",
-      icon: <FaCodeBranch />,
-      numbers: "56542",
-      btnText: "Check",
-      redirectUrl: "/frenchise",
-    },
-    {
-      heading: "Your Profile",
-      desc: "lorme ipsum dolar sit generator and something else else",
-      icon: <CgProfile />,
-      numbers: "56542",
-      btnText: "Visit",
-      redirectUrl: "/head/profile",
-    },
   ];
   return (
     <>

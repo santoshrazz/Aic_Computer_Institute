@@ -55,6 +55,7 @@ export default function Course_Container() {
       duration: 1,
       scrollTrigger: {
         trigger: ".course_Div",
+        scrub: 2,
       },
     });
   });

@@ -31,54 +31,62 @@ export function Accordian() {
 
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
 
+  const accordianData = [
+    {
+      id: 1,
+      question: "Why to Join Aic Computer",
+      answer: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
+      illum, vero, maiores odit deleniti fuga quo sit dignissimos nemo
+      magni alias praesentium debitis voluptatum voluptas illo laudantium!
+      Aspernatur, voluptate iure.`,
+    },
+    {
+      id: 2,
+      question: "What is different in Aic Computer",
+      answer: `We&apos;re not always in the position that we want to be at.
+      We&apos;re constantly growing. We&apos;re constantly making
+      mistakes. We&apos;re constantly trying to express ourselves and
+      actualize our dreams.`,
+    },
+    {
+      id: 3,
+      question: "Is ADCA course Good",
+      answer: `We&apos;re not always in the position that we want to be at.
+      We&apos;re constantly growing. We&apos;re constantly making
+      mistakes. We&apos;re constantly trying to express ourselves and
+      actualize our dreams.`,
+    },
+    {
+      id: 4,
+      question: "What will i learn id DTP",
+      answer: `We&apos;re not always in the position that we want to be at.
+      We&apos;re constantly growing. We&apos;re constantly making
+      mistakes. We&apos;re constantly trying to express ourselves and
+      actualize our dreams.`,
+    },
+  ];
+
   return (
     <>
       <div className="w-10/12 m-auto p-4">
         <h2 className="text-center text-4xl font-sans my-3">
           Frequently Ask Questions
         </h2>
-        <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
-          <AccordionHeader
-            className="text-blue-500"
-            onClick={() => handleOpen(1)}
+        {accordianData.map((ele) => (
+          <Accordion
+            key={ele.id}
+            open={open === ele.id}
+            icon={<Icon id={ele.id} open={open} />}
           >
-            Why to Join Aic Computer
-          </AccordionHeader>
-          <AccordionBody>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
-            illum, vero, maiores odit deleniti fuga quo sit dignissimos nemo
-            magni alias praesentium debitis voluptatum voluptas illo laudantium!
-            Aspernatur, voluptate iure.
-          </AccordionBody>
-        </Accordion>
-        <Accordion open={open === 2} icon={<Icon id={2} open={open} />}>
-          <AccordionHeader
-            className="text-blue-500"
-            onClick={() => handleOpen(2)}
-          >
-            What is different in Aic Computer
-          </AccordionHeader>
-          <AccordionBody>
-            We&apos;re not always in the position that we want to be at.
-            We&apos;re constantly growing. We&apos;re constantly making
-            mistakes. We&apos;re constantly trying to express ourselves and
-            actualize our dreams.
-          </AccordionBody>
-        </Accordion>
-        <Accordion open={open === 3} icon={<Icon id={3} open={open} />}>
-          <AccordionHeader
-            className="text-blue-500"
-            onClick={() => handleOpen(3)}
-          >
-            Is ADCA course Good
-          </AccordionHeader>
-          <AccordionBody>
-            We&apos;re not always in the position that we want to be at.
-            We&apos;re constantly growing. We&apos;re constantly making
-            mistakes. We&apos;re constantly trying to express ourselves and
-            actualize our dreams.
-          </AccordionBody>
-        </Accordion>
+            <AccordionHeader
+              className="text-blue-500"
+              onClick={() => handleOpen(ele.id)}
+            >
+              {ele.question}
+            </AccordionHeader>
+            <AccordionBody>{ele.answer}</AccordionBody>
+          </Accordion>
+        ))}
       </div>
     </>
   );

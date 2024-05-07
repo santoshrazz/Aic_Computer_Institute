@@ -12,6 +12,7 @@ import Frenchise from "../Franchise/Frenchise";
 import Director from "../Director/Director";
 import { Accordian } from "../Accordian/Accordian";
 import TextRevealSection from "../Gsap_Text_Reveal/TextRevealSection";
+import GSAP_Scroll_Aic from "../GSAP_Scroll/GSAP_Scroll_Aic";
 const Home = () => {
   return (
     <div>
@@ -20,7 +21,8 @@ const Home = () => {
         children={"Best Computer Institute"}
         className={"bg-black"}
       /> */}
-      <TextRevealSection />
+      {/* <TextRevealSection /> */}
+      <GSAP_Scroll_Aic />
       <Carousel />
       <Course_Container />
       <About_Container />

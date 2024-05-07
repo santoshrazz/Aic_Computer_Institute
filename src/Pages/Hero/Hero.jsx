@@ -9,12 +9,12 @@ export default function Hero() {
   // ----------> GSAP Animation <-------------
   gsap.registerPlugin(useGSAP);
   useGSAP(() => {
-    gsapTimeline.from(".heading", {
+    gsap.from(".heading", {
       y: 300,
       opacity: 0,
       scale: 0.2,
-      duration: 0.3,
-      // delay: 1,
+      duration: 1,
+      delay: 1,
     });
   });
   return (

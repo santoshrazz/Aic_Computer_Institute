@@ -22,7 +22,7 @@ const Certificate_Download = () => {
     toPng(ref.current, { cacheBust: true })
       .then((dataUrl) => {
         const link = document.createElement("a");
-        link.download = "my-image-name.png";
+        link.download = "certificate.png";
         link.href = dataUrl;
         link.click();
       })

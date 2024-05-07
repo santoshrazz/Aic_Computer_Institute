@@ -154,13 +154,13 @@ export default function Dashboard_Slider() {
                     <ListItemPrefix>
                       <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                     </ListItemPrefix>
-                    Add Frenchise
+                    <Link to={"/head/add_frenchise"}>Add Frenchise</Link>
                   </ListItem>
                   <ListItem>
                     <ListItemPrefix>
                       <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                     </ListItemPrefix>
-                    All Frenchise
+                    <Link to={"/allfrenchise"}>All Frenchise</Link>
                   </ListItem>
                 </List>
               </AccordionBody>

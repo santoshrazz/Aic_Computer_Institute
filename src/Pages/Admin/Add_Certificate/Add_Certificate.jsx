@@ -271,14 +271,21 @@ const Add_Certificate = () => {
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     >
                       <option value="Select_Course">Select Frencheise</option>
-                      <option value="Dca">Dca</option>
-                      <option value="ADCA">ADCA</option>
-                      <option value="Tally">Tally</option>
-                      <option value="DTP">DTP</option>
-                      <option value="ENGLISH TYPING">ENGLISH TYPING</option>
-                      <option value="HINDI TYPING">HINDI TYPING</option>
-                      <option value="JAVA">JAVA</option>
-                      <option value="PYTHON">PYTHON</option>
+                      <option value="Gic Computer Institute">
+                        Gic Computer Institute
+                      </option>
+                      <option value="Mic Computer Institute">
+                        Mic Computer Institute
+                      </option>
+                      <option value="Geeta Computer Institute">
+                        Geeta Computer Institute
+                      </option>
+                      <option value="Shreya Computer Institute">
+                        Shreya Computer Institute
+                      </option>
+                      <option value="Manav Computer Institute">
+                        Manav Computer Institute
+                      </option>
                     </select>
                   </div>
                 </div>

@@ -36,7 +36,10 @@ const Check_Certificate = () => {
 
   // Get data Function
   const getData = async (paramsData) => {
-    const response = await axios.post("students/search_Student", paramsData);
+    const response = await axios.post(
+      "students/search_Certificate",
+      paramsData
+    );
     return response.data;
   };
   const { mutate, isSuccess, data, isPending, isError, error } = useMutation({
