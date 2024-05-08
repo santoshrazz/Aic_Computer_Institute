@@ -8,6 +8,7 @@ import Search_Student from "../Admin/Search_Student/Search_Student";
 import View_Student from "../Admin/View_Student/View_Student";
 import Profile from "../Admin/Profile/Profile";
 import Add_Frenchise from "../Franchise/Add_Frenchise";
+import Post_Notification from "../Notifications/Post_Notification";
 const Admin_Route = () => {
   // Getting login state value from store
   const { loginState } = useSelector((store) => store.login);
@@ -30,6 +31,7 @@ const Admin_Route = () => {
         <Route path="search_student" element={<Search_Student />} />
         <Route path="view_student" element={<View_Student />} />
         <Route path="profile" element={<Profile />} />
+        <Route path="/post_notification" element={<Post_Notification />} />
         <Route path="dashboard" element={<Main_Dashboard />} />
       </Routes>
     </div>

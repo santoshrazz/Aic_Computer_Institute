@@ -9,7 +9,6 @@ const GSAP_Scroll_Aic = () => {
       delay: 2,
       scrollTrigger: {
         trigger: ".main",
-        markers: true,
         scroller: "body",
         start: "top -50%",
         end: "top -100%",

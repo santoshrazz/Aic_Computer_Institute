@@ -9,6 +9,7 @@ export default defineConfig({
       "/student": "http://localhost:8000/",
       "/admin": "http://localhost:8000/",
       "/frenchise": "http://localhost:8000/",
+      "/notification": "http://localhost:8000/",
     },
   },
 });

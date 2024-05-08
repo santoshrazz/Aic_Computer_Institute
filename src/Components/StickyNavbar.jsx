@@ -34,7 +34,7 @@ const navListMenuItems = [
     title: "Notifications",
     description: "Know about new batches",
     icon: IoMdNotifications,
-    redirect: "/",
+    redirect: "/notifications",
   },
   {
     title: "Courses",

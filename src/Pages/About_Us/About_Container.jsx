@@ -1,9 +1,32 @@
-import React from "react";
-import ButtonComp from "../../Components/ButtonComp";
-import About_Carousel from "./About_Carousel";
+import React, { useRef } from "react";
+import cursorImage from "../../Assets/Coaching_Image/img1.jpg";
+import gsap from "gsap";
 const About_Container = () => {
+  const Ref = useRef(null);
+  const onMouseMove = (e) => {
+    gsap.to(Ref.current, {
+      x: e.nativeEvent.x,
+      y: e.nativeEvent.y,
+      opacity: 1,
+    });
+  };
+
+  const onMouseLeave = () => {
+    gsap.to(Ref.current, {
+      x: 0,
+      y: 0,
+      opacity: 0,
+    });
+  };
   return (
-    <div className="bg-gray-700 p-4 min-h-screen">
+    <div
+      className="bg-gray-700 p-4 min-h-screen relative"
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+    >
+      <div className="imgDiv absolute z-20 top-0 left-0" ref={Ref}>
+        <img src={cursorImage} alt="" className=" rounded-lg" />
+      </div>
       <div className="max-w-7xl mx-auto h-max px-6 md:px-12 xl:px-6">
         <div className="md:w-2/3 lg:w-1/2">
           <svg
