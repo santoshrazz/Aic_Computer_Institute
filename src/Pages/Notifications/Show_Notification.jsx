@@ -17,15 +17,13 @@ const Show_Notification = () => {
   const { data, error, loading } = useQuery({
     queryKey: [""],
     queryFn: getData,
-    staleTime: 30000,
+    staleTime: 60000,
   });
 
   // Handling Data After Success
   useEffect(() => {
     if (data) {
-      console.log(data);
       setResult(data.response);
-      console.log(result);
     }
   }, [data]);
 
@@ -47,10 +45,16 @@ const Show_Notification = () => {
         <ol className="flex flex-col gap-5 list-decimal p-4 text-white text-xl">
           {result?.map((ele) => {
             return (
-              <li key={ele._id}>
-                <Link to={"/"} className="text-white hover:underline text-xl">
-                  {ele.title}
-                </Link>
+              <li
+                key={ele._id}
+                className="text-white hover:underline text-xl cursor-pointer"
+                onClick={() => {
+                  navigate("/single_Notifications", {
+                    state: ele,
+                  });
+                }}
+              >
+                {ele.title}
               </li>
             );
           })}

@@ -12,6 +12,7 @@ import Check_Certificate from "../Admin/Check_Certificate/Check_Certificate";
 import { Add_Frenchise } from "../Admin/Add_Frenchise/Add_Frenchise";
 import Certificate_Download from "../Certificate_Download/Certificate_Download";
 import Show_Notification from "../Notifications/Show_Notification";
+import Show_Single_Notification from "../Notifications/Show_Single_Notification";
 
 const RoutesComp = () => {
   return (
@@ -26,6 +27,10 @@ const RoutesComp = () => {
         <Route path="login" element={<Login />} />
         <Route path="allfrenchise" element={<Frenchise />} />
         <Route path="allNotifications" element={<Show_Notification />} />
+        <Route
+          path="single_Notifications"
+          element={<Show_Single_Notification />}
+        />
         <Route path="director" element={<Director />} />
         <Route path="add_frenchise" element={<Add_Frenchise />} />
         <Route path="head/*" element={<Admin_Route />} />
