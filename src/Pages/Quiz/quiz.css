@@ -1,0 +1,32 @@
+.main_container {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    209deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 43%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+hr {
+  height: 2px;
+}
+.nextBtn {
+  background: rgb(54, 68, 255);
+}
+.nextBtn:hover {
+  background: rgb(54, 68, 255);
+
+  background: radial-gradient(
+    circle,
+    rgba(54, 68, 255, 1) 0%,
+    rgba(252, 70, 107, 1) 100%
+  );
+}
+.successBorder {
+  border: 2px solid green;
+  background-color: rgba(0, 128, 0, 0.418);
+}
+.wrong {
+  border: 2px solid rgb(233, 8, 8);
+  background-color: rgba(128, 0, 0, 0.418);
+}

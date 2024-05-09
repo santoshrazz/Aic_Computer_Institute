@@ -12,6 +12,7 @@ import Check_Certificate from "../Admin/Check_Certificate/Check_Certificate";
 import { Add_Frenchise } from "../Admin/Add_Frenchise/Add_Frenchise";
 import Certificate_Download from "../Certificate_Download/Certificate_Download";
 import Show_Notification from "../Notifications/Show_Notification";
+import Quiz from "../Quiz/Quiz";
 import Show_Single_Notification from "../Notifications/Show_Single_Notification";
 
 const RoutesComp = () => {
@@ -32,6 +33,7 @@ const RoutesComp = () => {
           element={<Show_Single_Notification />}
         />
         <Route path="director" element={<Director />} />
+        <Route path="quiz" element={<Quiz />} />
         <Route path="add_frenchise" element={<Add_Frenchise />} />
         <Route path="head/*" element={<Admin_Route />} />
       </Routes>
