@@ -23,7 +23,7 @@ const Show_Notification = () => {
   // Handling Data After Success
   useEffect(() => {
     if (data) {
-      setResult(data.response);
+      setResult(data.response.reverse());
     }
   }, [data]);
 

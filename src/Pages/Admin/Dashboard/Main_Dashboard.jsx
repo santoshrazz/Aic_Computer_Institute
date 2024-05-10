@@ -50,6 +50,14 @@ const Main_Dashboard = () => {
       btnText: "Add",
       redirectUrl: "/head/add_frenchise",
     },
+    {
+      heading: "Post Notification",
+      desc: "lorme ipsum dolar sit generator and something else else",
+      icon: <FaCodeBranch />,
+      numbers: "56542",
+      btnText: "Add",
+      redirectUrl: "/head/post_notification",
+    },
   ];
   return (
     <>

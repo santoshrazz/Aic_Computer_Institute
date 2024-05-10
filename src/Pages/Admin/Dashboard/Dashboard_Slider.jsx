@@ -217,7 +217,7 @@ export default function Dashboard_Slider() {
                   />
                 </svg>
               </ListItemPrefix>
-              New Batches
+              <Link to={"/head/post_notification"}>Add Notification</Link>
             </ListItem>
             <ListItem>
               <ListItemPrefix>
