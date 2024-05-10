@@ -35,8 +35,8 @@ const Contact = () => {
   });
   useEffect(() => {
     if (isSuccess) {
-      console.log(data);
       notify(data.message);
+      setformData({ name: "", email: "", message: "", phone: "" });
     }
   }, [data]);
 

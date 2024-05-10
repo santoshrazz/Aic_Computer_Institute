@@ -5,9 +5,9 @@ const About_Container = () => {
   const Ref = useRef(null);
   const onMouseMove = (e) => {
     gsap.to(Ref.current, {
+      opacity: 1,
       x: e.nativeEvent.x,
       y: e.nativeEvent.y,
-      opacity: 1,
     });
   };
 
@@ -24,7 +24,7 @@ const About_Container = () => {
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
     >
-      <div className="imgDiv absolute z-20 top-0 left-0" ref={Ref}>
+      <div className="imgDiv absolute z-20 top-0 left-0 opacity-0" ref={Ref}>
         <img src={cursorImage} alt="" className=" rounded-lg" />
       </div>
       <div className="max-w-7xl mx-auto h-max px-6 md:px-12 xl:px-6">

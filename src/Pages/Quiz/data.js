@@ -1,4 +1,4 @@
-export const data = [
+export const data2 = [
   {
     question:
       "A flashing red traffic light signifies that a driver should do what?",
@@ -48,6 +48,89 @@ export const data = [
     B: "bricklayer",
     C: "doctor",
     D: "accountant",
+    answer: "A",
+  },
+];
+// Computer releted MCQ's
+export const data = [
+  {
+    question: "What is the primary function of an operating system?",
+    A: "To manage hardware resources",
+    B: "To manage software applications",
+    C: "To provide internet connectivity",
+    D: "To create graphical user interfaces",
+    answer: "A",
+  },
+  {
+    question: "Which of the following is not a type of computer memory?",
+    A: "RAM",
+    B: "ROM",
+    C: "CPU",
+    D: "Cache",
+    answer: "C",
+  },
+  {
+    question: "What does CPU stand for?",
+    A: "Computer Processing Unit",
+    B: "Central Processing Unit",
+    C: "Computer Programming Unit",
+    D: "Central Programming Unit",
+    answer: "B",
+  },
+  {
+    question: "Which of the following is a high-level programming language?",
+    A: "Machine Code",
+    B: "Assembly Language",
+    C: "C",
+    D: "HTML",
+    answer: "C",
+  },
+  {
+    question: "What does LAN stand for?",
+    A: "Local Area Network",
+    B: "Large Area Network",
+    C: "Limited Access Network",
+    D: "Link Access Network",
+    answer: "A",
+  },
+  {
+    question: "Which of the following is an input device?",
+    A: "Monitor",
+    B: "Printer",
+    C: "Keyboard",
+    D: "Speakers",
+    answer: "C",
+  },
+  {
+    question: "What does HTML stand for?",
+    A: "Hyper Text Markup Language",
+    B: "Hyperlink Text Markup Language",
+    C: "High Tech Markup Language",
+    D: "Hyperlinking Text Manipulation Language",
+    answer: "A",
+  },
+  {
+    question: "What is the purpose of a firewall?",
+    A: "To protect against physical theft",
+    B: "To prevent unauthorized access to or from a private network",
+    C: "To speed up internet connection",
+    D: "To enhance graphic rendering",
+    answer: "B",
+  },
+  {
+    question: "Which of the following is a primary function of an assembler?",
+    A: "To convert assembly language into machine code",
+    B: "To manage memory resources",
+    C: "To create user interfaces",
+    D: "To perform arithmetic operations",
+    answer: "A",
+  },
+  {
+    question: "What does URL stand for?",
+    A: "Uniform Resource Locator",
+    B: "Universal Resource Link",
+    C: "Uniform Resource Link",
+    D: "Universal Reference Locator",
     answer: "A",
   },
 ];

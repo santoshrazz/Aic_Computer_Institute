@@ -21,6 +21,7 @@ import {
 import { IoMdNotifications } from "react-icons/io";
 import { FaCodeBranch } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
+import { MdQuiz } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { TbCertificate } from "react-icons/tb";
@@ -59,6 +60,12 @@ const navListMenuItems = [
     description: "Send email to register students",
     icon: HiOutlineMail,
     redirect: "/contact",
+  },
+  {
+    title: "Give a Test",
+    description: "Play a quiz to test your knowledge about computer",
+    icon: MdQuiz,
+    redirect: "/quiz",
   },
 ];
 

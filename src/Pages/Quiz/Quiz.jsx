@@ -42,64 +42,87 @@ const Quiz = () => {
       setActive(false);
     }
   };
+  const resetQuiz = () => {
+    setIndex(0);
+    setQuestions(data[index]);
+    setAnswer(0);
+    setshowAnswer(false);
+    setActive(true);
+  };
   return (
     <>
       <div className="w-full main_container h-screen flex justify-center items-center">
-        <div className="main bg-white p-4 flex flex-col rounded-md gap-3">
-          <h2>
-            Q{index + 1}. {questions.question}
-          </h2>
-          <hr className="font-bold  bg-black" />
-          <ol>
-            <li
-              className=" p-2 font-serif border m-2 hover:border-black hover:bg-slate-600 cursor-pointer "
-              ref={liRef1}
-              onClick={(e) => {
-                checkAnswer(e, "A");
-              }}
+        {/* If ShowAnswer is true then only show the answer div */}
+        {showAnswer ? (
+          <div className="bg-white w-1/4 h-32 rounded-md flex gap-3 justify-center items-center flex-col">
+            <p className="text-3xl font-bold"></p>
+            <p className="text-xl">
+              You Answered {answer} out of {data.length}
+            </p>
+            <button
+              className="bg-blue-800 text-white px-4 py-2 rounded-md"
+              onClick={resetQuiz}
             >
-              <span className="mx-2">A.</span>
-              {questions.A}
-            </li>
-            <li
-              className=" p-2 font-serif border m-2 hover:border-black hover:bg-slate-600 cursor-pointer"
-              ref={liRef2}
-              onClick={(e) => {
-                checkAnswer(e, "B");
-              }}
+              Reset Quiz
+            </button>
+          </div>
+        ) : (
+          // If showAnswer is not true then show the questions div
+          <div className="main bg-white p-4 flex flex-col rounded-md gap-3">
+            <h2 className="text-2xl">
+              Q{index + 1}. {questions.question}
+            </h2>
+            <hr className="font-bold  bg-black" />
+            <ol>
+              <li
+                className=" p-2 font-serif border text-xl m-2 hover:border-black hover:bg-slate-600 cursor-pointer "
+                ref={liRef1}
+                onClick={(e) => {
+                  checkAnswer(e, "A");
+                }}
+              >
+                <span className="mx-2">A.</span>
+                {questions.A}
+              </li>
+              <li
+                className=" p-2 font-serif border text-xl m-2 hover:border-black hover:bg-slate-600 cursor-pointer"
+                ref={liRef2}
+                onClick={(e) => {
+                  checkAnswer(e, "B");
+                }}
+              >
+                <span className="mx-2">B.</span>
+                {questions.B}
+              </li>
+              <li
+                className=" p-2 font-serif border text-xl m-2 hover:border-black hover:bg-slate-600 cursor-pointer"
+                ref={liRef3}
+                onClick={(e) => {
+                  checkAnswer(e, "C");
+                }}
+              >
+                <span className="mx-2">C.</span>
+                {questions.C}
+              </li>
+              <li
+                className=" p-2 font-serif border text-xl m-2 hover:border-black hover:bg-slate-600 cursor-pointer"
+                ref={liRef4}
+                onClick={(e) => {
+                  checkAnswer(e, "D");
+                }}
+              >
+                <span className="mx-2">D.</span>
+                {questions.D}
+              </li>
+            </ol>
+            <button
+              className=" bg-blue-500 nextBtn w-1/4 rounded-md text-white font-bold py-2 m-auto"
+              onClick={handleNext}
             >
-              <span className="mx-2">B.</span>
-              {questions.B}
-            </li>
-            <li
-              className=" p-2 font-serif border m-2 hover:border-black hover:bg-slate-600 cursor-pointer"
-              ref={liRef3}
-              onClick={(e) => {
-                checkAnswer(e, "C");
-              }}
-            >
-              <span className="mx-2">C.</span>
-              {questions.C}
-            </li>
-            <li
-              className=" p-2 font-serif border m-2 hover:border-black hover:bg-slate-600 cursor-pointer"
-              ref={liRef4}
-              onClick={(e) => {
-                checkAnswer(e, "D");
-              }}
-            >
-              <span className="mx-2">D.</span>
-              {questions.D}
-            </li>
-          </ol>
-          <button
-            className=" bg-blue-500 nextBtn w-1/4 rounded-md text-white font-bold py-2 m-auto"
-            onClick={handleNext}
-          >
-            Next
-          </button>
-          {showAnswer && <h2>Your Correct Answer Was {answer}</h2>}
-        </div>
+              Next
+            </button>
+          </div>
+        )}
       </div>
     </>
   );

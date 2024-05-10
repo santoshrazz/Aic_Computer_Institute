@@ -4,11 +4,11 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 const GSAP_Scroll_Aic = () => {
   useGSAP(() => {
-    gsap.to(".main h2", {
+    gsap.to(".textRevealDiv h2", {
       transform: "translateX(-78%)",
       delay: 2,
       scrollTrigger: {
-        trigger: ".main",
+        trigger: ".textRevealDiv",
         scroller: "body",
         start: "top -50%",
         end: "top -100%",
@@ -18,7 +18,7 @@ const GSAP_Scroll_Aic = () => {
     });
   }, []);
   return (
-    <div className="main">
+    <div className="textRevealDiv">
       <h2 className="h2">AICComputer</h2>
     </div>
   );

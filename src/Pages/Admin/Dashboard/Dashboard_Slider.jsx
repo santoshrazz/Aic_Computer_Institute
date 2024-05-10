@@ -183,7 +183,7 @@ export default function Dashboard_Slider() {
                   />
                 </svg>
               </ListItemPrefix>
-              Notification
+              <Link to={"/allNotifications"}>Notifications</Link>
               <ListItemSuffix>
                 <Chip
                   value="14"
