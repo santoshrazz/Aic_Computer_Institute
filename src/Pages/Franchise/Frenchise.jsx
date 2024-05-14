@@ -4,10 +4,7 @@ import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect } from "react";
-import { ToastContainer, toast } from "react-toastify";
 const Frenchise = () => {
-  // notify function to send notification
-  const notify = (msg) => toast(msg);
   // usestate to store result
   const [frenchiseResult, setfrenchiseResult] = useState([]);
 
@@ -35,7 +32,6 @@ const Frenchise = () => {
       <h3 className=" text-center font-extrabold text-5xl text-white">
         Our New Frenchise
       </h3>
-      <ToastContainer />
       <div className=" min-h-screen">
         <div className="max-w-screen-xl mx-auto px-4 pt-16 pb-4">
           <div className="flex flex-col flex-wrap md:flex-row md:-mx-2">

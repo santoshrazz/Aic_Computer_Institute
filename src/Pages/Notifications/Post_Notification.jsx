@@ -18,7 +18,7 @@ const Post_Notification = () => {
     const response = await axios.post("/notification/add", dataToPost);
     return response.data;
   };
-  const { data, error, mutate } = useMutation({
+  const { data, mutate } = useMutation({
     mutationKey: ["notificationKey"],
     mutationFn: postData,
   });

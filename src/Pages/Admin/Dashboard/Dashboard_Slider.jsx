@@ -10,8 +10,6 @@ import {
   Accordion,
   AccordionHeader,
   AccordionBody,
-  Alert,
-  Input,
   Drawer,
   Card,
 } from "@material-tailwind/react";
@@ -19,14 +17,11 @@ import {
   PresentationChartBarIcon,
   ShoppingBagIcon,
   UserCircleIcon,
-  Cog6ToothIcon,
-  InboxIcon,
   PowerIcon,
 } from "@heroicons/react/24/solid";
 import {
   ChevronRightIcon,
   ChevronDownIcon,
-  CubeTransparentIcon,
   MagnifyingGlassIcon,
   Bars3Icon,
   XMarkIcon,

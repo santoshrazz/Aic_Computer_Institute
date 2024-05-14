@@ -2,8 +2,6 @@ import React from "react";
 import Dashboard_Slider from "./Dashboard_Slider";
 import { PiStudentFill, PiCertificateFill } from "react-icons/pi";
 import { FaCodeBranch } from "react-icons/fa6";
-import { CgProfile } from "react-icons/cg";
-import { MdEmail } from "react-icons/md";
 import { Button } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 const Main_Dashboard = () => {

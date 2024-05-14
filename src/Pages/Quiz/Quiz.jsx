@@ -7,7 +7,6 @@ const Quiz = () => {
   const [answer, setAnswer] = useState(0);
   const [showAnswer, setshowAnswer] = useState(false);
   const [active, setActive] = useState(true);
-  const [userName, setuserName] = useState("");
 
   const liRef1 = useRef(null);
   const liRef2 = useRef(null);

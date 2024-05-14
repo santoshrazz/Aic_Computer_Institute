@@ -4,14 +4,12 @@ import {
   CardBody,
   CardFooter,
   Typography,
-  Button,
 } from "@material-tailwind/react";
 import Check_ICon from "../../Components/Check_ICon";
 import ButtonComp from "../../Components/ButtonComp";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
-import { gsapTimeline } from "../../Constants/Const";
 const courseData = [
   {
     name: "DCA",

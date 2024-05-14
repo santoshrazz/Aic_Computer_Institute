@@ -31,7 +31,7 @@ const Login = () => {
 
   // Handler for form submission
 
-  const { mutate, isSuccess, data, isPending, isError, error } = useMutation({
+  const { mutate, isSuccess, data, isError, error } = useMutation({
     mutationKey: ["getAdminState"],
     mutationFn: fetchAdmin,
   });
