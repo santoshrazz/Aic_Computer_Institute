@@ -13,6 +13,7 @@ import SpinnerComp from "../../../Components/Loadin_Button/SpinnerComp";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import { DB_URL } from "../../../Constants/Const";
 
 export default function View_Student() {
   // Hook to store result
@@ -21,7 +22,9 @@ export default function View_Student() {
   // const deleteRequest Funtion
   const deleteRequest = async (id) => {
     try {
-      const response = await axios.delete(`/students/deleteSingleRequest${id}`);
+      const response = await axios.delete(
+        `${DB_URL}/students/deleteSingleRequest${id}`
+      );
       if (response.data) {
         console.log(response.data);
         notify(response.data.message);

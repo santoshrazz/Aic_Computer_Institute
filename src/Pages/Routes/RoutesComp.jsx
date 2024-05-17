@@ -9,7 +9,7 @@ import Admin_Route from "./Admin_Route";
 import Frenchise from "../Franchise/Frenchise";
 import Director from "../Director/Director";
 import Check_Certificate from "../Admin/Check_Certificate/Check_Certificate";
-import { Add_Frenchise } from "../Admin/Add_Frenchise/Add_Frenchise";
+// import { Add_Frenchise } from "../Admin/Add_Frenchise/Add_Frenchise";
 import Certificate_Download from "../Certificate_Download/Certificate_Download";
 import Show_Notification from "../Notifications/Show_Notification";
 import Quiz from "../Quiz/Quiz";
@@ -34,7 +34,6 @@ const RoutesComp = () => {
         />
         <Route path="director" element={<Director />} />
         <Route path="quiz" element={<Quiz />} />
-        <Route path="add_frenchise" element={<Add_Frenchise />} />
         <Route path="head/*" element={<Admin_Route />} />
       </Routes>
     </BrowserRouter>

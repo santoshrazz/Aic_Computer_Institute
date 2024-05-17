@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { DB_URL } from "../../../Constants/Const";
 import { setLogin } from "../../../Store/slice";
 const Login = () => {
   // Define state variables for form fields
@@ -25,7 +26,7 @@ const Login = () => {
   const dispatch = useDispatch();
   // Fetch Admin Function
   const fetchAdmin = async (data) => {
-    const response = await axios.post("/admin/login", data);
+    const response = await axios.post(`${DB_URL}/admin/login`, data);
     return response.data;
   };
 
@@ -135,7 +136,7 @@ const Login = () => {
               htmlType="submit"
               className="login-form-button bg-blue-500 hover:bg-black"
             >
-              LOADING
+              Log In
             </Button>
           </Form.Item>
         </Form>

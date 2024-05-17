@@ -7,6 +7,7 @@ import {
   ListItemPrefix,
   ListItemSuffix,
   Chip,
+  Input,
   Accordion,
   AccordionHeader,
   AccordionBody,

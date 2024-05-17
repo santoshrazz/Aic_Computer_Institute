@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { DB_URL } from "../../Constants/Const";
 
 const Contact = () => {
   // useState to handle formState
@@ -21,7 +22,7 @@ const Contact = () => {
   // Post data funtion to post data on server
   const postData = async (data) => {
     try {
-      const response = await axios.post("/students/saveRequest", data);
+      const response = await axios.post(`${DB_URL}/students/saveRequest`, data);
       return response.data;
     } catch (error) {
       console.log(`Error at postData on contact component`, error);
@@ -58,7 +59,6 @@ const Contact = () => {
   // Handle Submit Form Funtion to send DB Request
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    console.log(formData);
     mutate(formData);
   };
   return (

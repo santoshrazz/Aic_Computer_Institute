@@ -2,6 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { DB_URL } from "../../Constants/Const";
 
 const Post_Notification = () => {
   // Toastify Funtion
@@ -15,7 +16,7 @@ const Post_Notification = () => {
     setformData({ ...formData, [name]: value });
   };
   const postData = async (dataToPost) => {
-    const response = await axios.post("/notification/add", dataToPost);
+    const response = await axios.post(`${DB_URL}/notification/add`, dataToPost);
     return response.data;
   };
   const { data, mutate } = useMutation({

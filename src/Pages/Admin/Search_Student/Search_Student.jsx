@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import Dashboard_Slider from "../Dashboard/Dashboard_Slider";
+import { DB_URL } from "../../../Constants/Const";
 
 const Search_Student = () => {
   const [result, setResult] = useState(null);
@@ -37,7 +38,7 @@ const Search_Student = () => {
       return;
     }
     const resultAfterDelete = await axios.delete(
-      `/students//delete_Certificate${studentId}`
+      `${DB_URL}/students/delete_Certificate${studentId}`
     );
     notify(resultAfterDelete?.data.message);
     setResult(null);

@@ -5,6 +5,7 @@ import { useMutation } from "@tanstack/react-query";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import { DB_URL } from "../../../Constants/Const";
 
 const Check_Certificate = () => {
   const [result, setResult] = useState(null);
@@ -37,7 +38,7 @@ const Check_Certificate = () => {
   // Get data Function
   const getData = async (paramsData) => {
     const response = await axios.post(
-      "students/search_Certificate",
+      `${DB_URL}/students/search_Certificate`,
       paramsData
     );
     return response.data;

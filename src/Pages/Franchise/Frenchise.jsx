@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect } from "react";
+import { DB_URL } from "../../Constants/Const";
 const Frenchise = () => {
   // usestate to store result
   const [frenchiseResult, setfrenchiseResult] = useState([]);
 
   // funtion to fetch frenchise
   const fetchFrenchise = async () => {
-    const response = await axios.get("/frenchise/getFrenchise");
+    const response = await axios.get(`${DB_URL}/frenchise/getFrenchise`);
     return response.data;
   };
   // fetching data using useQuery

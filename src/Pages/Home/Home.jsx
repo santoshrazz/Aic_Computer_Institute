@@ -6,22 +6,24 @@ import About_Container from "../About_Us/About_Container";
 import Footer from "../Footer/Footer";
 import Testimonal from "../Testimonal/Testimonal";
 import Contact from "../Contact/Contact";
-import Our_Services from "../Our_Services/Our_Services";
 import Frenchise from "../Franchise/Frenchise";
 import Director from "../Director/Director";
 import { Accordian } from "../Accordian/Accordian";
-import GSAP_Scroll_Aic from "../GSAP_Scroll/GSAP_Scroll_Aic";
+import { Vortex2 } from "../GSAP_Scroll/Vertex2";
+import ThreeDCardDemo from "../Our_Services/Our_Service_Card";
+// import Vortex from "../GSAP_Scroll/Vortex";
 const Home = () => {
   return (
     <div>
       <Hero />
-      <GSAP_Scroll_Aic />
+      <Vortex2 />
       <Carousel />
       <Course_Container />
       <About_Container />
       <Testimonal />
       <Accordian />
-      <Our_Services />
+      {/* <Our_Services /> */}
+      <ThreeDCardDemo />
       <Frenchise />
       <Contact />
       <Director />

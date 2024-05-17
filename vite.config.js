@@ -6,10 +6,10 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/student": "http://localhost:8000/",
-      "/admin": "http://localhost:8000/",
-      "/frenchise": "http://localhost:8000/",
-      "/notification": "http://localhost:8000/",
+      "/student": "https://aic-backend-crnr.onrender.com/",
+      "/admin": "https://aic-backend-crnr.onrender.com/",
+      "/frenchise": "https://aic-backend-crnr.onrender.com/",
+      "/notification": "https://aic-backend-crnr.onrender.com/",
     },
   },
 });

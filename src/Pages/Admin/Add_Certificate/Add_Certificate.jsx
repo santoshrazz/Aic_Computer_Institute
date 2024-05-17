@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { DB_URL } from "../../../Constants/Const";
 const Add_Certificate = () => {
   // State for handle form value
   const [formData, setFormData] = useState({
@@ -65,7 +66,7 @@ const Add_Certificate = () => {
     console.log(formData);
     try {
       const response = await axios.put(
-        "/students//update-certificate",
+        `${DB_URL}/students//update-certificate`,
         formData
       );
       if (response.data.status) {
@@ -94,7 +95,7 @@ const Add_Certificate = () => {
   const postData = async (postDataParams) => {
     try {
       const response = await axios.post(
-        "/students/create-certificate",
+        `${DB_URL}/students/create-certificate`,
         postDataParams
       );
       return response.data;
@@ -125,7 +126,6 @@ const Add_Certificate = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      console.log(data);
       notify(data.message);
       // setting object as empty
       setFormData({
@@ -160,7 +160,7 @@ const Add_Certificate = () => {
                 className="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                 type="button"
               >
-                <Link to={"/admin/all_Students"}>All Certificate</Link>
+                <Link to={"/admin/all_Certificate"}>All Certificate</Link>
               </button>
             </div>
           </div>

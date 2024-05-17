@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import SpinnerComp from "../../../Components/Loadin_Button/SpinnerComp";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { DB_URL } from "../../../Constants/Const";
 
 const All_Students = () => {
   const [result, setResult] = React.useState([]);
@@ -15,7 +16,7 @@ const All_Students = () => {
 
   // fetchStudent function to fetch Student
   const fetchStudent = async () => {
-    const response = await axios.get("/students/all_Certificate");
+    const response = await axios.get(`${DB_URL}/students/all_Certificate`);
     return response.data;
   };
   // UseQuery Hook for fetching api
@@ -73,7 +74,7 @@ const All_Students = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {result.map((ele, ind) => {
+                  {result?.map((ele, ind) => {
                     return (
                       <tr key={ind}>
                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">

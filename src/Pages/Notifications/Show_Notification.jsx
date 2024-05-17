@@ -2,13 +2,14 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { DB_URL } from "../../Constants/Const";
 
 const Show_Notification = () => {
   const [result, setResult] = useState([]);
 
   // Get Data Funtion
   const getData = async () => {
-    const response = await axios.get("notification/getNotification");
+    const response = await axios.get(`${DB_URL}/notification/getNotification`);
     return response.data;
   };
 
