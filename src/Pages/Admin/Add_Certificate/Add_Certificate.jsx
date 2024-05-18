@@ -160,7 +160,7 @@ const Add_Certificate = () => {
                 className="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                 type="button"
               >
-                <Link to={"/admin/all_Certificate"}>All Certificate</Link>
+                <Link to={"/head/all_Certificate"}>All Certificate</Link>
               </button>
             </div>
           </div>

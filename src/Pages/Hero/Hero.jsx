@@ -1,10 +1,9 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { ContainerScroll } from "./Ui/Container_Scroll";
 import C_Image from "../../Assets/Computer_Image.jpg";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { gsapTimeline } from "../../Constants/Const";
 export default function Hero() {
   // ----------> GSAP Animation <-------------
   gsap.registerPlugin(useGSAP);
