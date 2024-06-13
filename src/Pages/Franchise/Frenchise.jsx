@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect } from "react";
 import { DB_URL } from "../../Constants/Const";
+axios.defaults.withCredentials = true;
 const Frenchise = () => {
   // usestate to store result
   const [frenchiseResult, setfrenchiseResult] = useState([]);
@@ -15,7 +16,7 @@ const Frenchise = () => {
     return response.data;
   };
   // fetching data using useQuery
-  const { data, isLoading, isError, error } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["frenchiseData"],
     queryFn: fetchFrenchise,
     staleTime: 30000,
